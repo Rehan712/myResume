@@ -4,9 +4,10 @@ import * as actions from '../actions';
 
 class Data extends React.Component {
 	componentDidMount() {
-		const { id, getData } = this.props;
-		console.log('this is id from data component', id);
-		getData(id);
+		const { getData } = this.props;
+		const name=localStorage.getItem('name')
+		console.log('this is id from data component', name);
+		getData(name);
 	}
 
 	render() {
@@ -24,8 +25,7 @@ class Data extends React.Component {
 
 function mapStateToProps(state) {
 	return {
-		data: state.data,
-		id: state.dataFromLogin.id
+		data: state.data
 	};
 }
 

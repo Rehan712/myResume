@@ -9,9 +9,9 @@ export default function* loginDataSaga(action) {
 	try {
 		const res = yield call(api.loginDataApi, data);
 		yield put(actions.loginDataSuccess(res.id));
-		yield put(push(`/data`));
 		localStorage.setItem('token', res.token);
-		localStorage.setItem('id', res.id);
+		localStorage.setItem('name', res.name);
+		yield put(push(`/data/${localStorage.getItem('name')}`));
 		yield put(actions.resetLoginState());
 	} catch (e) {
 		yield put(actions.loginDataFail(e));

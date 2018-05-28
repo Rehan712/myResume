@@ -5,6 +5,7 @@ import Home from './Home';
 import Data from './Data';
 import SignIn from './SignIn';
 import Login from './Login';
+import StudentData from './StudentData'
 
 import {isTokenValid} from '../utils'
 
@@ -25,6 +26,8 @@ class App extends React.Component{
 					<Link to="/siginIn" style={{marginLeft:50,textDecoration:'none'}}>SignIn</Link>
 					
 					<Link to="/login" style={{marginLeft:50, textDecoration:'none'}}>Login</Link>
+					<Link to="/studentDataComponent" style={{marginLeft:50, textDecoration:'none'}}>studentData</Link>
+
 					
 				</div> 
 
@@ -33,6 +36,12 @@ class App extends React.Component{
 					<Route path="/data" component={Data} />
 					<Route path="/siginIn" component={SignIn} />
 					<Route path="/login" component={Login} />
+					<Route path="/studentDataComponent" render={
+						(routeProps)=>{
+							return <StudentData routeProps={routeProps} />
+						}
+					} />
+
 
 				</Switch>
 			</div>

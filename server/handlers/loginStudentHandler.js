@@ -11,8 +11,8 @@ const jwtOptions = require('../passport/jwtOptions');
 function varifyUser(name, password, users) {
 	const userArray = users.filter(item => {
 		if (
-			name === item.studentDetails.studentAuthentication.name &&
-			password === item.studentDetails.studentAuthentication.password
+			name === item.name &&
+			password === item.password
 		) {
 			return true;
 		} else {
@@ -37,12 +37,12 @@ module.exports = (req, res) => {
 			// console.log('this is user from loginStudentHandler', user._id);
 			if (user) {
 				var payload = {
-					name: user.studentDetails.studentAuthentication.name
+					name: user.name
 				};
 				var token = jwt.sign(payload, jwtOptions.secretOrKey, {
 					expiresIn: 60 * 60
 				});
-				res.status(201).send({ id: user._id, token });
+				res.status(201).send({ name: user.name, token });
 			} else {
 				res.sendStatus(401);
 			}

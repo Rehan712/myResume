@@ -1,7 +1,7 @@
 module.exports = app => {
 	// api routes
 	app.get(
-		'/studentData/:id',
+		'/studentData/:name',
 		// require('passport').authenticate('jwt',{session:false}),
 		require('../handlers/getDataHandler')
 	);
@@ -22,6 +22,9 @@ module.exports = app => {
 		res.sendFile(require('path').join(__dirname, '../../dist/index.html'));
 	});
 	app.get('/data', (req, res) => {
+		res.sendFile(require('path').join(__dirname, '../../dist/index.html'));
+	});
+	app.get('/studentDataComponent', (req, res) => {
 		res.sendFile(require('path').join(__dirname, '../../dist/index.html'));
 	});
 };

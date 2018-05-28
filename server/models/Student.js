@@ -2,13 +2,11 @@ const mongoose = require('mongoose');
 
 const StudentSchema = mongoose.Schema({
 	updated_at: { type: Date, default: Date.now },
+	name: String,
+	password: String,
+	email: String,
 
 	studentDetails: {
-		studentAuthentication: {
-			name: String,
-			password: String,
-			email: String
-		},
 		studentPersonalInfo: {
 			name: String,
 			summary: String,

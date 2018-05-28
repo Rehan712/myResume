@@ -6,13 +6,9 @@ module.exports = (req, res) => {
 
 	const student = new Student({
 		_id: id,
-		studentDetails: {
-			studentAuthentication: {
-				name: req.body.name,
-				email: req.body.email,
-				password: req.body.password
-			}
-		}
+		name:req.body.name,
+		password:req.body.password,
+		email:req.body.email
 	});
 
 	student.save((err, student) => {

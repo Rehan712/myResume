@@ -8,8 +8,8 @@ import loginDataReducer from './loginDataReducer';
 const rootReducer = combineReducers({
 	inputFormData: formTextFieldReducer,
 	data: getDataReducer,
-	inputLoginData: loginTextFieldReducer,
-	dataFromLogin: loginDataReducer
+	inputLoginData: loginTextFieldReducer
+	//dataFromLogin: loginDataReducer
 });
 
 export default rootReducer;

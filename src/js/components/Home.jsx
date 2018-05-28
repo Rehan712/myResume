@@ -1,7 +1,16 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import * as actions from '../actions';
 
-const Home=()=>(
-	<div>This is the home component</div>
-)
+class Home extends React.Component{
+	componentDidMount(){
 
-export default Home
+	}
+	render(){
+		return (
+			<div className="home"></div>
+		)
+	}
+}
+
+export default connect(null,{getData:actions.getData})(Home)

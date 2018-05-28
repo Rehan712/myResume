@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export async function getDataApi(id) {
-	const res = await axios.get(`/studentData/${id}`);
+export async function getDataApi(name) {
+	const res = await axios.get(`/studentData/${name}`);
 	return res.data;
 }
 

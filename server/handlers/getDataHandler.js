@@ -1,8 +1,8 @@
 module.exports = (req, res, next) => {
-	const id = req.params.id;
-	console.log('this is id from getDataHandler', id);
+	const name = req.params.name;
+	console.log('this is id from getDataHandler', name);
 	require('../models/Student').findOne(
-		{ _id: id },
+		{ name: name },
 		'studentDetails',
 		(err, students) => {
 			if (err) {
