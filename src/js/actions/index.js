@@ -371,3 +371,65 @@ export function btnAddDevelopmentTool() {
 		type: types.BTN_ADD_DEVELOPMENT_TOOL
 	};
 }
+
+// ############_________________#############
+
+// Actions for TextFields of Student Education
+
+export function changeStudentEducationDgreeName(value) {
+	return {
+		type: types.CHANGE_STUDENT_DEGREE_NAME,
+		payload: value
+	};
+}
+
+export function changeStudentEducationDegreeLevel(value) {
+	return {
+		type: types.CHANGE_STUDENT_DEGREE_LEVEL,
+		payload: value
+	};
+}
+
+export function changeStudentEducationInstituteName(value) {
+	return {
+		type: types.CHANGE_STUDENT_INSTITUTE_NAME,
+		payload: value
+	};
+}
+
+export function changeStudentEducationMajorSubject(value) {
+	return {
+		type: types.CHANGE_STUDENT_MAJOR_SUBJECT,
+		payload: value
+	};
+}
+
+export function changeStudentEducationPlace(value) {
+	return {
+		type: types.CHANGE_STUDENT_EDUCATION_PLACE,
+		payload: value
+	};
+}
+
+export function changeStudentEducationPassingYear(value) {
+	return {
+		type: types.CHANGE_STUDENT_PASSING_YEAR,
+		payload: value
+	};
+}
+
+export function btnCancelEducation() {
+	return {
+		type: types.BTN_CANCEL_EDUCATION
+	};
+}
+
+export function btnAddEducation() {
+	return {
+		type: types.BTN_ADD_EDUCATION
+	};
+}
+
+
+
+

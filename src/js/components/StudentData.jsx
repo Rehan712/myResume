@@ -349,4 +349,37 @@ class StudentData extends React.Component {
 	}
 }
 
-export default connect(null, { getData: actions.getData })(StudentData);
+export default connect(null, { 
+	getSingleData: actions.getSingleData,
+	// Personal Info Actions
+	changeStudentName:actions.changeStudentName,
+	changeStudentEmail:actions.changeStudentEmail,
+	changeStudentProfessionalTitle:actions.changeStudentProfessionalTitle,
+	changeStudentSummary:actions.changeStudentSummary,
+	// Work Experience Actions
+	changeStudentCompanyName:actions.changeStudentCompanyName,
+	changeStudentStartingDate:actions.changeStudentStartingDate,
+	changeStudentEndingDate:actions.changeStudentEndingDate,
+	changeStudentPlace:actions.changeStudentPlace,
+	changeStudentDescription:actions.changeStudentDescription,
+	// Expertise FrontEnd Actions
+	changeStudentFrontEndName:actions.changeStudentFrontEndName,
+	changeStudentFrontEndDescription:actions.changeStudentFrontEndDescription,
+	changeStudentFrontEndDuration:actions.changeStudentFrontEndDuration,
+	// Expertise BackEnd Actions
+	changeStudentBackEndName:actions.changeStudentBackEndName,
+	changeStudentBackEndDescription:actions.changeStudentBackEndDescription,
+	changeStudentBackEndDuration:actions.changeStudentBackEndDuration,
+	// Expertise Development Tool Actions
+	changeStudentDevelopmentToolName:actions.changeStudentDevelopmentToolName,
+	changeStudentDevelopmentToolDescription:actions.changeStudentDevelopmentToolDescription,
+	changeStudentDevelopmentToolDuration:actions.changeStudentDevelopmentToolDuration,
+	// Education Actions
+	changeStudentEducationDegreeName:actions.changeStudentEducationDegreeName,
+	changeStudentEducationDegreeLevel:actions.changeStudentEducationDegreeLevel,
+	changeStudentEducationInstituteName:actions.changeStudentEducationInstituteName,
+	changeStudentEducationPlace:actions.changeStudentEducationPlace,
+	changeStudentEducationPassingYear:actions.changeStudentEducationPassingYear,
+	changeStudentMajorSubject:actions.changeStudentMajorSubject
+
+})(StudentData);
