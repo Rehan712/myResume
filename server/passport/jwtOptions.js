@@ -7,11 +7,10 @@
 
 // module.exports=jwtOptions
 
-const {ExtractJwt}=require('passport-jwt');
+var { ExtractJwt } = require("passport-jwt");
+var jwtOptions = {};
 
-const jwtOptions={};
+jwtOptions.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
+jwtOptions.secretOrKey = "mySecret";
 
-jwtOptions.jwtFromRequest=ExtractJwt.fromAuthHeaderAsBearerToken();
-jwtOptions.secretOrKey='mySecret';
-
-module.exports=jwtOptions
+module.exports = jwtOptions;

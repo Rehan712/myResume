@@ -1,13 +1,18 @@
-import { takeLatest, all, fork } from 'redux-saga/effects';
+import { takeLatest, all, fork } from "redux-saga/effects";
 
-import * as types from '../constants';
-import getDataSaga from './getDataSaga';
-import submitDataSaga from './submitDataSaga';
-import loginDataSaga from './loginDataSaga';
-import signOutSaga from './signOutSaga';
+import * as types from "../constants";
+import getDataSaga from "./getDataSaga";
+import submitDataSaga from "./submitDataSaga";
+import loginDataSaga from "./loginDataSaga";
+import signOutSaga from "./signOutSaga";
+import getSingleDataSaga from "./getSingleDataSaga";
 
 function* watchGetData() {
 	yield takeLatest(types.GET_DATA, getDataSaga);
+}
+
+function* watchGetSingleData() {
+	yield takeLatest(types.GET_SINGLE_DATA, getSingleDataSaga);
 }
 
 function* watchSubmitData() {
@@ -27,6 +32,7 @@ export default function* rootSaga() {
 		fork(watchGetData),
 		fork(watchLoginData),
 		fork(watchSubmitData),
-		fork(watchsignOutData)
+		fork(watchsignOutData),
+		fork(watchGetSingleData)
 	]);
 }

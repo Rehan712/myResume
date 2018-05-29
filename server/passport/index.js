@@ -23,27 +23,34 @@
 // 	passport.use(strategy);
 // }
 
-var passport=require('passport');
-var {Strategy}=require('passport-jwt')
+var passport = require("passport");
+var { Strategy } = require("passport-jwt");
 
-var users=[
-	{
-		name:'rehan',
-		password:'rehan007'
-	}
-]
+// var users = [
+// 	{
+// 		name: "rehan",
+// 		password: "rehan007"
+// 	}
+// ];
 
-module.exports=()=>{
-	var strategy=new Strategy(require('./jwtOptions'),(jwt_payload,next)=>{
-		console.log('this is payload from passport strategy',jwt_payload)
-		var user=users.filter(item=>{
-			return item.name === jwt_payload.name
-		})[0];
-		if(user){
-			next(null,user)
-		}else{
-			next(null,false)
+module.exports = () => {
+	var strategy = new Strategy(
+		require("./jwtOptions"),
+		(jwt_payload, next) => {
+			console.log("this is payload from passport strategy", jwt_payload);
+
+			require("../models/Student").find({}, (err, users) => {
+				var user = users.filter(item => {
+					return item.name === jwt_payload.name;
+				})[0];
+				if (user) {
+					next(null, user);
+				} else {
+					next(null, false);
+				}
+			});
 		}
-	})
+	);
+
 	passport.use(strategy);
-}
+};

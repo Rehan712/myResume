@@ -1,0 +1,58 @@
+.form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	flex-direction: center;
+	.studentForm {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		// align-items: space-around;
+		// height: calc(100vh - 70px);
+		// background-color: grey;
+		// margin-top: 50px;
+		box-sizing: border-box;
+		// border: 2px solid #a1d6b9;
+		box-shadow: 5px 3px #d5e5dc;
+		.formItems {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			border: 5px solid #63a697;
+			width: 80%;
+			margin: auto;
+			margin-top: 80px;
+
+			.formHeading {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: 30px;
+				color: #43da89;
+				margin: auto;
+				position: relative;
+				width: 250px;
+				height: 50px;
+				bottom: 30px;
+				background-color: #9588ab;
+				// padding: 10px;
+				// padding-bottom: 2px;
+				// padding-left: 50px;
+				box-shadow: border-box;
+			}
+			.items {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				justify-content: space-around;
+				.textItem {
+					width: 320px;
+					// background-color: red;
+					margin: 70px;
+				}
+			}
+		}
+	}
+}

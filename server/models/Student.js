@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const StudentSchema = mongoose.Schema({
 	updated_at: { type: Date, default: Date.now },
@@ -14,14 +14,17 @@ const StudentSchema = mongoose.Schema({
 			email: String,
 			phoneNo: String
 		},
-		workExperience: {
-			companyName: String,
-			startingDate: { Date },
-			EndingDate: { Date },
-			isTillNow: { Boolean },
-			place: String,
-			description: String
-		},
+		workExperience: [
+			{
+				companyName: String,
+				startingDate: { Date },
+				EndingDate: { Date },
+				isTillNow: { Boolean },
+				place: String,
+				description: String
+			}
+		],
+
 		technicalExpertise: {
 			frontEnd: [
 				{
@@ -65,4 +68,4 @@ const StudentSchema = mongoose.Schema({
 	}
 });
 
-module.exports = mongoose.model('Student', StudentSchema);
+module.exports = mongoose.model("Student", StudentSchema);

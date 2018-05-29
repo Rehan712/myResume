@@ -1,18 +1,18 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../actions';
+import React from "react";
+import { connect } from "react-redux";
+import * as actions from "../actions";
 
 class Data extends React.Component {
 	componentDidMount() {
 		const { getData } = this.props;
-		const name=localStorage.getItem('name')
-		console.log('this is id from data component', name);
+		const name = localStorage.getItem("name");
+		console.log("this is id from data component", name);
 		getData(name);
 	}
 
 	render() {
 		const { data, signOutData } = this.props;
-		console.log('this is the data', this.props.data);
+		console.log("this is the data", this.props.data);
 		return (
 			<div>
 				<div className="button">

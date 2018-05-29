@@ -5,13 +5,13 @@ const initial = {
 	data: {}
 };
 
-export default function getDataReduder(state = initial, action) {
+export default function getSingleDataReducer(state = initial, action) {
 	switch (action.type) {
-		case types.GET_DATA_ATTEMPT:
+		case types.GET_SINGLE_DATA_ATTEMPT:
 			return { ...state, isLoading: true };
-		case types.GET_DATA_SUCCESS:
+		case types.GET_SINGLE_DATA_SUCCESS:
 			return { ...state, isLoading: false, data: action.payload };
-		case types.GET_DATA_FAIL:
+		case types.GET_SINGLE_DATA_FAIL:
 			return { ...state, isLoading: false, error: action.payload };
 		default:
 			return state;
