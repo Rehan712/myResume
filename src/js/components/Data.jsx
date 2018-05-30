@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import * as actions from "../actions";
+import Button from "@material-ui/core/Button";
 
 class Data extends React.Component {
 	componentDidMount() {
@@ -11,10 +12,13 @@ class Data extends React.Component {
 	}
 
 	render() {
-		const { data, signOutData } = this.props;
-		console.log("this is the data", this.props.data);
+		const { singleData, signOutData } = this.props;
+		console.log("this is the data", this.props.singleData);
 		return (
 			<div>
+				<div className="workExperience">
+					<Button variant="raised" color="primary">Add Experience</Button>
+				</div>
 				<div className="button">
 					<button onClick={signOutData}>Sign out</button>
 				</div>
@@ -25,7 +29,7 @@ class Data extends React.Component {
 
 function mapStateToProps(state) {
 	return {
-		data: state.data
+		singledata: state.singleData
 	};
 }
 
