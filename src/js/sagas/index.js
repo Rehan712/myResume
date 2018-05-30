@@ -6,6 +6,7 @@ import submitDataSaga from "./submitDataSaga";
 import loginDataSaga from "./loginDataSaga";
 import signOutSaga from "./signOutSaga";
 import getSingleDataSaga from "./getSingleDataSaga";
+import submitSingleDataSaga from "./submitSingleDataSaga";
 
 function* watchGetData() {
 	yield takeLatest(types.GET_DATA, getDataSaga);
@@ -17,6 +18,10 @@ function* watchGetSingleData() {
 
 function* watchSubmitData() {
 	yield takeLatest(types.SUBMIT_DATA, submitDataSaga);
+}
+
+function* watchSubmitSingleData() {
+	yield takeLatest(types.SUBMIT_SINGLE_DATA, submitSingleDataSaga);
 }
 
 function* watchLoginData() {
@@ -33,6 +38,7 @@ export default function* rootSaga() {
 		fork(watchLoginData),
 		fork(watchSubmitData),
 		fork(watchsignOutData),
-		fork(watchGetSingleData)
+		fork(watchGetSingleData),
+		fork(watchSubmitSingleData)
 	]);
 }

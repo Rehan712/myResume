@@ -376,7 +376,7 @@ export function btnAddDevelopmentTool() {
 
 // Actions for TextFields of Student Education
 
-export function changeStudentEducationDgreeName(value) {
+export function changeStudentEducationDegreeName(value) {
 	return {
 		type: types.CHANGE_STUDENT_DEGREE_NAME,
 		payload: value
@@ -430,6 +430,29 @@ export function btnAddEducation() {
 	};
 }
 
+// Actions for the submit Data
 
+export function submitSingleData(data) {
+	return {
+		type: types.SUBMIT_SINGLE_DATA,
+		payload: data
+	};
+}
+export function submitSingleDataAttempt() {
+	return {
+		type: types.SUBMIT_SINGLE_DATA_ATTEMPT
+	};
+}
+export function submitSingleDataSuccess() {
+	return {
+		type: types.SUBMIT_SINGLE_DATA_SUCCESS
+	};
+}
+export function submitSingleDataFail(error) {
+	return {
+		type: types.SUBMIT_SINGLE_DATA_FAIL,
+		payload: error
+	};
+}
 
-
+// ########____________############

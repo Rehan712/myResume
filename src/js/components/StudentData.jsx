@@ -2,14 +2,64 @@ import React from "react";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 
 class StudentData extends React.Component {
 	// componentDidMount(){
 
 	// }
 	render() {
-		const inputData = { name: "rehan" };
-		console.log("these are the props from studentData", this.props);
+		const {
+			submitSingleData,
+			//  Input Data
+			studentInfoInputData,
+			studentFrontEndInputData,
+			studentBackEndInputData,
+			studentDevelopmentToolInputData,
+			studentWorkExperienceInputData,
+			studentEducationInputData,
+			// Personal Info Actions
+			changeStudentName,
+			changeStudentEmail,
+			changeStudentSummary,
+			changeStudentPhone,
+			changeStudentProfessionalTitle,
+			// Work Experience Actions
+			changeStudentStartingDate,
+			changeStudentCompanyName,
+			changeStudentEndingDate,
+			changeStudentPlace,
+			changeStudentDescription,
+			// Front End Actions
+			changeStudentFrontEndName,
+			changeStudentFrontEndDescription,
+			changeStudentFrontEndDuration,
+			//Back End Actions
+			changeStudentBackEndName,
+			changeStudentBackEndDescription,
+			changeStudentBackEndDuration,
+			//DevelopmentTools Actions
+			changeStudentDevelopmentToolName,
+			changeStudentDevelopmentToolDescription,
+			changeStudentDevelopmentToolDuration,
+			// Education Actions
+			changeStudentEducationPlace,
+			changeStudentEducationDegreeName,
+			changeStudentEducationDegreeLevel,
+			changeStudentEducationPassingYear,
+			changeStudentEducationMajorSubject,
+			changeStudentEducationInstituteName
+		} = this.props;
+
+		const inputData = {
+			...studentInfoInputData,
+			...studentEducationInputData,
+			...studentFrontEndInputData,
+			...studentBackEndInputData,
+			...studentDevelopmentToolInputData,
+			...studentWorkExperienceInputData
+		};
+		console.log("these are the props from ...studentData", this.props);
 		return (
 			<div className="studentData">
 				<div className="form">
@@ -25,75 +75,54 @@ class StudentData extends React.Component {
 										onChange={e => {
 											changeStudentName(e.target.value);
 										}}
-										value={inputData.studentName}
+										value={studentInfoInputData.name}
 									/>
 								</div>
 								<div className="textItem">
 									<TextField
 										style={{ width: 300 }}
-										label="Name"
-										id="Name"
+										label="Email"
+										id="Email"
 										onChange={e => {
-											changeStudentName(e.target.value);
+											changeStudentEmail(e.target.value);
 										}}
-										value={inputData.studentName}
+										value={studentInfoInputData.email}
 									/>
 								</div>
 								<div className="textItem">
 									<TextField
 										style={{ width: 300 }}
-										label="Name"
-										id="Name"
+										label="Professional Title"
+										id="ProfessionalTitle"
 										onChange={e => {
-											changeStudentName(e.target.value);
+											changeStudentProfessionalTitle(e.target.value);
 										}}
-										value={inputData.studentName}
+										value={studentInfoInputData.professionalTitle}
 									/>
 								</div>
 								<div className="textItem">
 									<TextField
 										style={{ width: 300 }}
-										label="Name"
-										id="Name"
+										label="Summary"
+										id="Summary"
 										onChange={e => {
-											changeStudentName(e.target.value);
+											changeStudentSummary(e.target.value);
 										}}
-										value={inputData.studentName}
+										value={studentInfoInputData.summary}
 									/>
 								</div>
 								<div className="textItem">
 									<TextField
 										style={{ width: 300 }}
-										label="Name"
-										id="Name"
+										label="Phone"
+										id="Phone"
 										onChange={e => {
-											changeStudentName(e.target.value);
+											changeStudentPhone(e.target.value);
 										}}
-										value={inputData.studentName}
+										value={studentInfoInputData.phone}
 									/>
 								</div>
-								<div className="textItem">
-									<TextField
-										style={{ width: 300 }}
-										label="Name"
-										id="Name"
-										onChange={e => {
-											changeStudentName(e.target.value);
-										}}
-										value={inputData.studentName}
-									/>
-								</div>
-								<div className="textItem">
-									<TextField
-										style={{ width: 300 }}
-										label="Name"
-										id="Name"
-										onChange={e => {
-											changeStudentName(e.target.value);
-										}}
-										value={inputData.studentName}
-									/>
-								</div>
+								<div className="textItem" />
 							</div>
 						</div>
 						<div className="formItems">
@@ -102,80 +131,61 @@ class StudentData extends React.Component {
 								<div className="textItem">
 									<TextField
 										style={{ width: 300 }}
-										label="Name"
-										id="Name"
+										label="CompanyName"
+										id="CompanyName"
 										onChange={e => {
-											changeStudentName(e.target.value);
+											changeStudentCompanyName(e.target.value);
 										}}
-										value={inputData.studentName}
+										value={studentWorkExperienceInputData.companyName}
 									/>
 								</div>
 								<div className="textItem">
 									<TextField
 										style={{ width: 300 }}
-										label="Name"
-										id="Name"
+										label="StartingDate"
+										id="StartingDate"
 										onChange={e => {
-											changeStudentName(e.target.value);
+											changeStudentStartingDate(e.target.value);
 										}}
-										value={inputData.studentName}
+										value={studentWorkExperienceInputData.startingDate}
 									/>
 								</div>
 								<div className="textItem">
 									<TextField
 										style={{ width: 300 }}
-										label="Name"
-										id="Name"
+										label="EndingDate"
+										id="EndingDate"
 										onChange={e => {
-											changeStudentName(e.target.value);
+											changeStudentEndingDate(e.target.value);
 										}}
-										value={inputData.studentName}
+										value={studentWorkExperienceInputData.endingDate}
 									/>
 								</div>
 								<div className="textItem">
 									<TextField
 										style={{ width: 300 }}
-										label="Name"
-										id="Name"
+										label="Place"
+										id="Place"
 										onChange={e => {
-											changeStudentName(e.target.value);
+											changeStudentPlace(e.target.value);
 										}}
-										value={inputData.studentName}
+										value={studentWorkExperienceInputData.workExperiencePlace}
 									/>
 								</div>
 								<div className="textItem">
 									<TextField
 										style={{ width: 300 }}
-										label="Name"
-										id="Name"
+										label="Description"
+										id="Description"
 										onChange={e => {
-											changeStudentName(e.target.value);
+											changeStudentDescription(e.target.value);
 										}}
-										value={inputData.studentName}
+										value={
+											studentWorkExperienceInputData.workExperienceDescription
+										}
 									/>
 								</div>
-								<div className="textItem">
-									<TextField
-										style={{ width: 300 }}
-										label="Name"
-										id="Name"
-										onChange={e => {
-											changeStudentName(e.target.value);
-										}}
-										value={inputData.studentName}
-									/>
-								</div>
-								<div className="textItem">
-									<TextField
-										style={{ width: 300 }}
-										label="Name"
-										id="Name"
-										onChange={e => {
-											changeStudentName(e.target.value);
-										}}
-										value={inputData.studentName}
-									/>
-								</div>
+								<div className="textItem" />
 							</div>
 						</div>
 						<div className="formItems">
@@ -184,78 +194,92 @@ class StudentData extends React.Component {
 								<div className="textItem">
 									<TextField
 										style={{ width: 300 }}
-										label="Name"
-										id="Name"
+										label="FrontEndName"
+										id="FrontEndName"
 										onChange={e => {
-											changeStudentName(e.target.value);
+											changeStudentFrontEndName(e.target.value);
 										}}
-										value={inputData.studentName}
+										value={studentFrontEndInputData.frontEndName}
+									/>
+									<TextField
+										style={{ width: 300 }}
+										label="FrontEndDescription"
+										id="FrontEndDescription"
+										onChange={e => {
+											changeStudentFrontEndDescription(e.target.value);
+										}}
+										value={studentFrontEndInputData.frontEndDescription}
+									/>
+									<TextField
+										style={{ width: 300 }}
+										label="FrontEndDuration"
+										id="FrontEndDuration"
+										onChange={e => {
+											changeStudentFrontEndDuration(e.target.value);
+										}}
+										value={studentFrontEndInputData.frontEndDuration}
 									/>
 								</div>
 								<div className="textItem">
 									<TextField
 										style={{ width: 300 }}
-										label="Name"
-										id="Name"
+										label="BackEndName"
+										id="BackEndName"
 										onChange={e => {
-											changeStudentName(e.target.value);
+											changeStudentBackEndName(e.target.value);
 										}}
-										value={inputData.studentName}
+										value={studentBackEndInputData.backEndName}
+									/>
+									<TextField
+										style={{ width: 300 }}
+										label="BackEndDescription"
+										id="BackEndDescription"
+										onChange={e => {
+											changeStudentBackEndDescription(e.target.value);
+										}}
+										value={studentBackEndInputData.backEndDescription}
+									/>
+									<TextField
+										style={{ width: 300 }}
+										label="BackEndDuration"
+										id="BackEndDuration"
+										onChange={e => {
+											changeStudentBackEndDuration(e.target.value);
+										}}
+										value={studentBackEndInputData.backEndDuration}
 									/>
 								</div>
 								<div className="textItem">
 									<TextField
 										style={{ width: 300 }}
-										label="Name"
-										id="Name"
+										label="DevelopmentToolName"
+										id="DevelopmentToolName"
 										onChange={e => {
-											changeStudentName(e.target.value);
+											changeStudentDevelopmentToolName(e.target.value);
 										}}
-										value={inputData.studentName}
+										value={studentDevelopmentToolInputData.developmentToolName}
 									/>
-								</div>
-								<div className="textItem">
 									<TextField
 										style={{ width: 300 }}
-										label="Name"
-										id="Name"
+										label="DevelopmentToolDescription"
+										id="DevelopmentToolDescription"
 										onChange={e => {
-											changeStudentName(e.target.value);
+											changeStudentDevelopmentToolDescription(e.target.value);
 										}}
-										value={inputData.studentName}
+										value={
+											studentDevelopmentToolInputData.developmentToolDescription
+										}
 									/>
-								</div>
-								<div className="textItem">
 									<TextField
 										style={{ width: 300 }}
-										label="Name"
-										id="Name"
+										label="DevelopmentToolDuration"
+										id="DevelopmentToolDuration"
 										onChange={e => {
-											changeStudentName(e.target.value);
+											changeStudentDevelopmentToolDuration(e.target.value);
 										}}
-										value={inputData.studentName}
-									/>
-								</div>
-								<div className="textItem">
-									<TextField
-										style={{ width: 300 }}
-										label="Name"
-										id="Name"
-										onChange={e => {
-											changeStudentName(e.target.value);
-										}}
-										value={inputData.studentName}
-									/>
-								</div>
-								<div className="textItem">
-									<TextField
-										style={{ width: 300 }}
-										label="Name"
-										id="Name"
-										onChange={e => {
-											changeStudentName(e.target.value);
-										}}
-										value={inputData.studentName}
+										value={
+											studentDevelopmentToolInputData.developmentToolDuration
+										}
 									/>
 								</div>
 							</div>
@@ -266,79 +290,80 @@ class StudentData extends React.Component {
 								<div className="textItem">
 									<TextField
 										style={{ width: 300 }}
-										label="Name"
-										id="Name"
+										label="EducationDegreeName"
+										id="EducationDegreeName"
 										onChange={e => {
-											changeStudentName(e.target.value);
+											changeStudentEducationDegreeName(e.target.value);
 										}}
-										value={inputData.studentName}
+										value={studentEducationInputData.degreeName}
 									/>
 								</div>
 								<div className="textItem">
 									<TextField
 										style={{ width: 300 }}
-										label="Name"
-										id="Name"
+										label="EducationDegreeLevel"
+										id="EducationDegreeLevel"
 										onChange={e => {
-											changeStudentName(e.target.value);
+											changeStudentEducationDegreeLevel(e.target.value);
 										}}
-										value={inputData.studentName}
+										value={studentEducationInputData.degreeLevel}
 									/>
 								</div>
 								<div className="textItem">
 									<TextField
 										style={{ width: 300 }}
-										label="Name"
-										id="Name"
+										label="EducationInstituteName"
+										id="EducationInstituteName"
 										onChange={e => {
-											changeStudentName(e.target.value);
+											changeStudentEducationInstituteName(e.target.value);
 										}}
-										value={inputData.studentName}
+										value={studentEducationInputData.instituteName}
 									/>
 								</div>
 								<div className="textItem">
 									<TextField
 										style={{ width: 300 }}
-										label="Name"
-										id="Name"
+										label="EducationPlace"
+										id="EducationPlace"
 										onChange={e => {
-											changeStudentName(e.target.value);
+											changeStudentEducationPlace(e.target.value);
 										}}
-										value={inputData.studentName}
+										value={studentEducationInputData.educationPlace}
 									/>
 								</div>
 								<div className="textItem">
 									<TextField
 										style={{ width: 300 }}
-										label="Name"
-										id="Name"
+										label="EducationPassingYear"
+										id="EducationPassingYear"
 										onChange={e => {
-											changeStudentName(e.target.value);
+											changeStudentEducationPassingYear(e.target.value);
 										}}
-										value={inputData.studentName}
+										value={studentEducationInputData.passingYear}
 									/>
 								</div>
 								<div className="textItem">
 									<TextField
 										style={{ width: 300 }}
-										label="Name"
-										id="Name"
+										label="EducationMajorSubject"
+										id="EducationMajorSubject"
 										onChange={e => {
-											changeStudentName(e.target.value);
+											changeStudentEducationMajorSubject(e.target.value);
 										}}
-										value={inputData.studentName}
+										value={studentEducationInputData.majorSubject}
 									/>
 								</div>
+								<div className="textItem" />
 								<div className="textItem">
-									<TextField
-										style={{ width: 300 }}
-										label="Name"
-										id="Name"
-										onChange={e => {
-											changeStudentName(e.target.value);
+									<Button
+										variant="raised"
+										color="primary"
+										onClick={() => {
+											submitSingleData(inputData);
 										}}
-										value={inputData.studentName}
-									/>
+									>
+										Submit
+									</Button>
 								</div>
 							</div>
 						</div>
@@ -349,37 +374,54 @@ class StudentData extends React.Component {
 	}
 }
 
-export default connect(null, { 
+function mapStateToProps(state) {
+	return {
+		studentInfoInputData: state.studentInfoInputData,
+		studentFrontEndInputData: state.studentFrontEndInputData,
+		studentBackEndInputData: state.studentBackEndInputData,
+		studentDevelopmentToolInputData: state.studentDevelopmentToolInputData,
+		studentWorkExperienceInputData: state.studentWorkExperienceInputData,
+		studentEducationInputData: state.studentEducationInputData
+	};
+}
+
+export default connect(mapStateToProps, {
 	getSingleData: actions.getSingleData,
 	// Personal Info Actions
-	changeStudentName:actions.changeStudentName,
-	changeStudentEmail:actions.changeStudentEmail,
-	changeStudentProfessionalTitle:actions.changeStudentProfessionalTitle,
-	changeStudentSummary:actions.changeStudentSummary,
+	changeStudentName: actions.changeStudentName,
+	changeStudentEmail: actions.changeStudentEmail,
+	changeStudentProfessionalTitle: actions.changeStudentProfessionalTitle,
+	changeStudentSummary: actions.changeStudentSummary,
+	changeStudentPhone: actions.changeStudentPhone,
 	// Work Experience Actions
-	changeStudentCompanyName:actions.changeStudentCompanyName,
-	changeStudentStartingDate:actions.changeStudentStartingDate,
-	changeStudentEndingDate:actions.changeStudentEndingDate,
-	changeStudentPlace:actions.changeStudentPlace,
-	changeStudentDescription:actions.changeStudentDescription,
+	changeStudentCompanyName: actions.changeStudentCompanyName,
+	changeStudentStartingDate: actions.changeStudentStartingDate,
+	changeStudentEndingDate: actions.changeStudentEndingDate,
+	changeStudentPlace: actions.changeStudentPlace,
+	changeStudentDescription: actions.changeStudentDescription,
 	// Expertise FrontEnd Actions
-	changeStudentFrontEndName:actions.changeStudentFrontEndName,
-	changeStudentFrontEndDescription:actions.changeStudentFrontEndDescription,
-	changeStudentFrontEndDuration:actions.changeStudentFrontEndDuration,
+	changeStudentFrontEndName: actions.changeStudentFrontEndName,
+	changeStudentFrontEndDescription: actions.changeStudentFrontEndDescription,
+	changeStudentFrontEndDuration: actions.changeStudentFrontEndDuration,
 	// Expertise BackEnd Actions
-	changeStudentBackEndName:actions.changeStudentBackEndName,
-	changeStudentBackEndDescription:actions.changeStudentBackEndDescription,
-	changeStudentBackEndDuration:actions.changeStudentBackEndDuration,
+	changeStudentBackEndName: actions.changeStudentBackEndName,
+	changeStudentBackEndDescription: actions.changeStudentBackEndDescription,
+	changeStudentBackEndDuration: actions.changeStudentBackEndDuration,
 	// Expertise Development Tool Actions
-	changeStudentDevelopmentToolName:actions.changeStudentDevelopmentToolName,
-	changeStudentDevelopmentToolDescription:actions.changeStudentDevelopmentToolDescription,
-	changeStudentDevelopmentToolDuration:actions.changeStudentDevelopmentToolDuration,
+	changeStudentDevelopmentToolName: actions.changeStudentDevelopmentToolName,
+	changeStudentDevelopmentToolDescription:
+		actions.changeStudentDevelopmentToolDescription,
+	changeStudentDevelopmentToolDuration:
+		actions.changeStudentDevelopmentToolDuration,
 	// Education Actions
-	changeStudentEducationDegreeName:actions.changeStudentEducationDegreeName,
-	changeStudentEducationDegreeLevel:actions.changeStudentEducationDegreeLevel,
-	changeStudentEducationInstituteName:actions.changeStudentEducationInstituteName,
-	changeStudentEducationPlace:actions.changeStudentEducationPlace,
-	changeStudentEducationPassingYear:actions.changeStudentEducationPassingYear,
-	changeStudentMajorSubject:actions.changeStudentMajorSubject
+	changeStudentEducationDegreeName: actions.changeStudentEducationDegreeName,
+	changeStudentEducationDegreeLevel: actions.changeStudentEducationDegreeLevel,
+	changeStudentEducationInstituteName:
+		actions.changeStudentEducationInstituteName,
+	changeStudentEducationPlace: actions.changeStudentEducationPlace,
+	changeStudentEducationPassingYear: actions.changeStudentEducationPassingYear,
+	changeStudentEducationMajorSubject:
+		actions.changeStudentEducationMajorSubject,
 
+	submitSingleData: actions.submitSingleData
 })(StudentData);

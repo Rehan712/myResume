@@ -1,20 +1,23 @@
-import * as types from '../constants';
+import * as types from "../constants";
 
-const initial={
-	name:'',
-	description:'',
-	duration:''
-}
+const initial = {
+	backEndName: "",
+	backEndDescription: "",
+	backEndDuration: ""
+};
 
-export default function studentDataBackEndTextFieldReducer(state=initial,action) {
-	switch(action.type){
+export default function studentDataBackEndTextFieldReducer(
+	state = initial,
+	action
+) {
+	switch (action.type) {
 		case types.CHANGE_STUDENT_BACK_END_NAME:
-			return {...state, name:action.payload};
+			return { ...state, backEndName: action.payload };
 		case types.CHANGE_STUDENT_BACK_END_DESCRIPTION:
-			return {...state, description:action.payload};
+			return { ...state, backEndDescription: action.payload };
 		case types.CHANGE_STUDENT_BACK_END_DURATION:
-			return {...state, duration:action.payload};
+			return { ...state, backEndDuration: action.payload };
 		default:
-			return state	
+			return state;
 	}
 }

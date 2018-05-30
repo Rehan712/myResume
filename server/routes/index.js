@@ -11,6 +11,10 @@ module.exports = app => {
 	);
 	app.post("/loginStudent", require("../handlers/loginStudentHandler"));
 	app.post("/postStudent", require("../handlers/postStudentHandler"));
+	app.post(
+		"/postSingleStudent/:name",
+		require("../handlers/postSingleStudentHandler")
+	);
 
 	// ##############______________________################
 
