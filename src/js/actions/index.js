@@ -1,4 +1,4 @@
-import * as types from "../constants";
+import * as types from '../constants';
 
 // Actions for geting data
 
@@ -204,9 +204,9 @@ export function changeStudentSummary(value) {
 	};
 }
 
-export function btnCancelPersonalInformation() {
+export function resetStudentInfoInput() {
 	return {
-		type: types.BTN_CANCEL_PERSONAL_INFORMATION
+		type: types.RESET_STUDENT_INFO_INPUT
 	};
 }
 
@@ -261,6 +261,12 @@ export function btnAddWorkExperience() {
 	};
 }
 
+export function resetStudentWorkExperienceInput() {
+	return {
+		type: types.RESET_STUDENT_WORK_EXPERIENCE_INPUT
+	};
+}
+
 // ############_________________#############
 
 // Actions for TextFields of Technical Expertise of Student Front End
@@ -286,15 +292,9 @@ export function changeStudentFrontEndDuration(value) {
 	};
 }
 
-export function btnCancelFrontEnd() {
+export function resetStudentFrontEndInput() {
 	return {
-		type: types.BTN_CANCEL_FRONT_END
-	};
-}
-
-export function btnAddFrontEnd() {
-	return {
-		type: types.BTN_ADD_FRONT_END
+		type: types.RESET_STUDENT_FRONT_END_INPUT
 	};
 }
 
@@ -323,15 +323,9 @@ export function changeStudentBackEndDuration(value) {
 	};
 }
 
-export function btnCancelBackEnd() {
+export function resetStudentBackEndInput() {
 	return {
-		type: types.BTN_CANCEL_BACK_END
-	};
-}
-
-export function btnAddBackEnd() {
-	return {
-		type: types.BTN_ADD_BACK_END
+		type: types.RESET_STUDENT_BACK_END_INPUT
 	};
 }
 
@@ -360,15 +354,9 @@ export function changeStudentDevelopmentToolDuration(value) {
 	};
 }
 
-export function btnCancelDevelopmentTool() {
+export function resetStudentDevelopmentToolInput() {
 	return {
-		type: types.BTN_CANCEL_DEVELOPMENT_TOOL
-	};
-}
-
-export function btnAddDevelopmentTool() {
-	return {
-		type: types.BTN_ADD_DEVELOPMENT_TOOL
+		type: types.RESET_STUDENT_DEVELOPMENT_TOOL_INPUT
 	};
 }
 
@@ -418,15 +406,9 @@ export function changeStudentEducationPassingYear(value) {
 	};
 }
 
-export function btnCancelEducation() {
+export function resetStudentEducationInput() {
 	return {
-		type: types.BTN_CANCEL_EDUCATION
-	};
-}
-
-export function btnAddEducation() {
-	return {
-		type: types.BTN_ADD_EDUCATION
+		type: types.RESET_STUDENT_EDUCATION_INPUT
 	};
 }
 

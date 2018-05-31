@@ -1,12 +1,12 @@
-import * as types from "../constants";
+import * as types from '../constants';
 
 const initial = {
-	degreeName: "",
-	degreeLevel: "",
-	instituteName: "",
-	majorSubject: "",
-	educationPlace: "",
-	passingYear: ""
+	degreeName: '',
+	degreeLevel: '',
+	instituteName: '',
+	majorSubject: '',
+	educationPlace: '',
+	passingYear: ''
 };
 
 export default function studentDataEducationTextFieldReducer(
@@ -26,6 +26,8 @@ export default function studentDataEducationTextFieldReducer(
 			return { ...state, educationPlace: action.payload };
 		case types.CHANGE_STUDENT_PASSING_YEAR:
 			return { ...state, passingYear: action.payload };
+		case types.RESET_STUDENT_EDUCATION_INPUT:
+			return initial;
 		default:
 			return state;
 	}

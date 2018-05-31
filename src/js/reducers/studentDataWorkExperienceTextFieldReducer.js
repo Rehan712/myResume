@@ -1,11 +1,11 @@
-import * as types from "../constants";
+import * as types from '../constants';
 
 const initial = {
-	companyName: "",
-	startingDate: "",
-	endingDate: "",
-	workExperiencePlace: "",
-	workExperienceDescription: ""
+	companyName: '',
+	startingDate: '',
+	endingDate: '',
+	workExperiencePlace: '',
+	workExperienceDescription: ''
 };
 
 export default function studentDataWorkExperienceTextFieldReducer(
@@ -23,6 +23,8 @@ export default function studentDataWorkExperienceTextFieldReducer(
 			return { ...state, workExperiencePlace: action.payload };
 		case types.CHANGE_STUDENT_DESCRIPTION:
 			return { ...state, workExperienceDescription: action.payload };
+		case types.RESET_STUDENT_WORK_EXPERIENCE_INPUT:
+			return initial;
 		default:
 			return state;
 	}

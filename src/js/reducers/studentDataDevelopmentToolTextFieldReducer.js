@@ -1,9 +1,9 @@
-import * as types from "../constants";
+import * as types from '../constants';
 
 const initial = {
-	developmentToolName: "",
-	developmentToolDescription: "",
-	developmentToolDuration: ""
+	developmentToolName: '',
+	developmentToolDescription: '',
+	developmentToolDuration: ''
 };
 
 export default function studentDataDevelopmentToolTextFieldReducer(
@@ -17,6 +17,8 @@ export default function studentDataDevelopmentToolTextFieldReducer(
 			return { ...state, developmentToolDescription: action.payload };
 		case types.CHANGE_STUDENT_DEVELOPMENT_TOOL_DURATION:
 			return { ...state, developmentToolDuration: action.payload };
+		case types.RESET_STUDENT_DEVELOPMENT_TOOL_INPUT:
+			return initial;
 		default:
 			return state;
 	}
