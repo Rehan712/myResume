@@ -21,8 +21,24 @@ class Data extends React.Component {
 	componentDidMount() {
 		const { getData } = this.props;
 		const name = localStorage.getItem('name');
-		console.log('this is id from data component', name);
+		// console.log('this is id from data component', );
 		getData(name);
+	}
+
+	renderWorkExperience() {
+		const { data } = this.props.data;
+		console.log('this is data from renderWorkExperience', data);
+		return Object.keys(data).length
+			? data.studentDetails.workExperience.map((item, index) => {
+					return (
+						<div className="renderWorkExperience">
+							Company Name:<div>{item.companyName}</div>
+							Company Place:<div>{item.place}</div>
+							Job Description:<div>{item.description}</div>
+						</div>
+					);
+			  })
+			: '';
 	}
 
 	render() {
@@ -77,7 +93,7 @@ class Data extends React.Component {
 			resetStudentEducationInput
 		} = this.props;
 
-		console.log('this is the data', this.props.singleData);
+		console.log('this is the data from data component', this.props);
 		return (
 			<div>
 				<div className="data">
@@ -96,13 +112,16 @@ class Data extends React.Component {
 								>
 									Add Experience
 								</Button>
+								{this.renderWorkExperience()}
 							</div>
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
 							<div className="form">
 								<div className="studentForm">
 									<div className="formItems">
-										<div className="formHeading">Work Experience</div>
+										<div className="formHeading">
+											Work Experience
+										</div>
 										<div className="items">
 											<div className="textItem">
 												<TextField
@@ -110,9 +129,13 @@ class Data extends React.Component {
 													label="CompanyName"
 													id="CompanyName"
 													onChange={e => {
-														changeStudentCompanyName(e.target.value);
+														changeStudentCompanyName(
+															e.target.value
+														);
 													}}
-													value={studentWorkExperienceInputData.companyName}
+													value={
+														studentWorkExperienceInputData.companyName
+													}
 												/>
 											</div>
 											<div className="textItem">
@@ -121,9 +144,13 @@ class Data extends React.Component {
 													label="StartingDate"
 													id="StartingDate"
 													onChange={e => {
-														changeStudentStartingDate(e.target.value);
+														changeStudentStartingDate(
+															e.target.value
+														);
 													}}
-													value={studentWorkExperienceInputData.startingDate}
+													value={
+														studentWorkExperienceInputData.startingDate
+													}
 												/>
 											</div>
 											<div className="textItem">
@@ -132,9 +159,13 @@ class Data extends React.Component {
 													label="EndingDate"
 													id="EndingDate"
 													onChange={e => {
-														changeStudentEndingDate(e.target.value);
+														changeStudentEndingDate(
+															e.target.value
+														);
 													}}
-													value={studentWorkExperienceInputData.endingDate}
+													value={
+														studentWorkExperienceInputData.endingDate
+													}
 												/>
 											</div>
 											<div className="textItem">
@@ -143,7 +174,9 @@ class Data extends React.Component {
 													label="Place"
 													id="Place"
 													onChange={e => {
-														changeStudentPlace(e.target.value);
+														changeStudentPlace(
+															e.target.value
+														);
 													}}
 													value={
 														studentWorkExperienceInputData.workExperiencePlace
@@ -156,7 +189,9 @@ class Data extends React.Component {
 													label="Description"
 													id="Description"
 													onChange={e => {
-														changeStudentDescription(e.target.value);
+														changeStudentDescription(
+															e.target.value
+														);
 													}}
 													value={
 														studentWorkExperienceInputData.workExperienceDescription
@@ -170,7 +205,9 @@ class Data extends React.Component {
 												<Button
 													color="primary"
 													onClick={() => {
-														submitSingleData(studentWorkExperienceInputData);
+														submitSingleData(
+															studentWorkExperienceInputData
+														);
 													}}
 												>
 													Submit
@@ -214,7 +251,9 @@ class Data extends React.Component {
 							<div className="form">
 								<div className="studentForm">
 									<div className="formItems">
-										<div className="formHeading">Education</div>
+										<div className="formHeading">
+											Education
+										</div>
 										<div className="items">
 											<div className="textItem">
 												<TextField
@@ -222,9 +261,13 @@ class Data extends React.Component {
 													label="EducationDegreeName"
 													id="EducationDegreeName"
 													onChange={e => {
-														changeStudentEducationDegreeName(e.target.value);
+														changeStudentEducationDegreeName(
+															e.target.value
+														);
 													}}
-													value={studentEducationInputData.degreeName}
+													value={
+														studentEducationInputData.degreeName
+													}
 												/>
 											</div>
 											<div className="textItem">
@@ -233,9 +276,13 @@ class Data extends React.Component {
 													label="EducationDegreeLevel"
 													id="EducationDegreeLevel"
 													onChange={e => {
-														changeStudentEducationDegreeLevel(e.target.value);
+														changeStudentEducationDegreeLevel(
+															e.target.value
+														);
 													}}
-													value={studentEducationInputData.degreeLevel}
+													value={
+														studentEducationInputData.degreeLevel
+													}
 												/>
 											</div>
 											<div className="textItem">
@@ -244,9 +291,13 @@ class Data extends React.Component {
 													label="EducationInstituteName"
 													id="EducationInstituteName"
 													onChange={e => {
-														changeStudentEducationInstituteName(e.target.value);
+														changeStudentEducationInstituteName(
+															e.target.value
+														);
 													}}
-													value={studentEducationInputData.instituteName}
+													value={
+														studentEducationInputData.instituteName
+													}
 												/>
 											</div>
 											<div className="textItem">
@@ -255,9 +306,13 @@ class Data extends React.Component {
 													label="EducationPlace"
 													id="EducationPlace"
 													onChange={e => {
-														changeStudentEducationPlace(e.target.value);
+														changeStudentEducationPlace(
+															e.target.value
+														);
 													}}
-													value={studentEducationInputData.educationPlace}
+													value={
+														studentEducationInputData.educationPlace
+													}
 												/>
 											</div>
 											<div className="textItem">
@@ -266,9 +321,13 @@ class Data extends React.Component {
 													label="EducationPassingYear"
 													id="EducationPassingYear"
 													onChange={e => {
-														changeStudentEducationPassingYear(e.target.value);
+														changeStudentEducationPassingYear(
+															e.target.value
+														);
 													}}
-													value={studentEducationInputData.passingYear}
+													value={
+														studentEducationInputData.passingYear
+													}
 												/>
 											</div>
 											<div className="textItem">
@@ -277,9 +336,13 @@ class Data extends React.Component {
 													label="EducationMajorSubject"
 													id="EducationMajorSubject"
 													onChange={e => {
-														changeStudentEducationMajorSubject(e.target.value);
+														changeStudentEducationMajorSubject(
+															e.target.value
+														);
 													}}
-													value={studentEducationInputData.majorSubject}
+													value={
+														studentEducationInputData.majorSubject
+													}
 												/>
 											</div>
 											<div className="textItem" />
@@ -290,7 +353,9 @@ class Data extends React.Component {
 												<Button
 													color="primary"
 													onClick={() => {
-														submitSingleData(studentEducationInputData);
+														submitSingleData(
+															studentEducationInputData
+														);
 													}}
 												>
 													Submit
@@ -341,7 +406,9 @@ class Data extends React.Component {
 								<div className="form">
 									<div className="studentForm">
 										<div className="formItems">
-											<div className="formHeading">Front End Skill</div>
+											<div className="formHeading">
+												Front End Skill
+											</div>
 											<div className="items">
 												<div className="textItem">
 													<TextField
@@ -349,9 +416,13 @@ class Data extends React.Component {
 														label="FrontEndName"
 														id="FrontEndName"
 														onChange={e => {
-															changeStudentFrontEndName(e.target.value);
+															changeStudentFrontEndName(
+																e.target.value
+															);
 														}}
-														value={studentFrontEndInputData.frontEndName}
+														value={
+															studentFrontEndInputData.frontEndName
+														}
 													/>
 												</div>
 												<div className="textItem">
@@ -360,9 +431,13 @@ class Data extends React.Component {
 														label="FrontEndDescription"
 														id="FrontEndDescription"
 														onChange={e => {
-															changeStudentFrontEndDescription(e.target.value);
+															changeStudentFrontEndDescription(
+																e.target.value
+															);
 														}}
-														value={studentFrontEndInputData.frontEndDescription}
+														value={
+															studentFrontEndInputData.frontEndDescription
+														}
 													/>
 												</div>
 												<div className="textItem">
@@ -371,19 +446,27 @@ class Data extends React.Component {
 														label="FrontEndDuration"
 														id="FrontEndDuration"
 														onChange={e => {
-															changeStudentFrontEndDuration(e.target.value);
+															changeStudentFrontEndDuration(
+																e.target.value
+															);
 														}}
-														value={studentFrontEndInputData.frontEndDuration}
+														value={
+															studentFrontEndInputData.frontEndDuration
+														}
 													/>
 												</div>
 												<div
 													className="textItem"
-													style={{ flexDirection: 'row' }}
+													style={{
+														flexDirection: 'row'
+													}}
 												>
 													<Button
 														color="primary"
 														onClick={() => {
-															submitSingleData(studentFrontEndInputData);
+															submitSingleData(
+																studentFrontEndInputData
+															);
 														}}
 													>
 														Submit
@@ -429,7 +512,9 @@ class Data extends React.Component {
 								<div className="form">
 									<div className="studentForm">
 										<div className="formItems">
-											<div className="formHeading">Back End Skill</div>
+											<div className="formHeading">
+												Back End Skill
+											</div>
 											<div className="items">
 												<div className="textItem">
 													<TextField
@@ -437,9 +522,13 @@ class Data extends React.Component {
 														label="BackEndName"
 														id="BackEndName"
 														onChange={e => {
-															changeStudentBackEndName(e.target.value);
+															changeStudentBackEndName(
+																e.target.value
+															);
 														}}
-														value={studentBackEndInputData.backEndName}
+														value={
+															studentBackEndInputData.backEndName
+														}
 													/>
 												</div>
 												<div className="textItem">
@@ -448,9 +537,13 @@ class Data extends React.Component {
 														label="BackEndDescription"
 														id="BackEndDescription"
 														onChange={e => {
-															changeStudentBackEndDescription(e.target.value);
+															changeStudentBackEndDescription(
+																e.target.value
+															);
 														}}
-														value={studentBackEndInputData.backEndDescription}
+														value={
+															studentBackEndInputData.backEndDescription
+														}
 													/>
 												</div>
 												<div className="textItem">
@@ -459,19 +552,27 @@ class Data extends React.Component {
 														label="BackEndDuration"
 														id="BackEndDuration"
 														onChange={e => {
-															changeStudentBackEndDuration(e.target.value);
+															changeStudentBackEndDuration(
+																e.target.value
+															);
 														}}
-														value={studentBackEndInputData.backEndDuration}
+														value={
+															studentBackEndInputData.backEndDuration
+														}
 													/>
 												</div>
 												<div
 													className="textItem"
-													style={{ flexDirection: 'row' }}
+													style={{
+														flexDirection: 'row'
+													}}
 												>
 													<Button
 														color="primary"
 														onClick={() => {
-															submitSingleData(studentBackEndInputData);
+															submitSingleData(
+																studentBackEndInputData
+															);
 														}}
 													>
 														Submit
@@ -517,7 +618,9 @@ class Data extends React.Component {
 								<div className="form">
 									<div className="studentForm">
 										<div className="formItems">
-											<div className="formHeading">Development Tool Skill</div>
+											<div className="formHeading">
+												Development Tool Skill
+											</div>
 											<div className="items">
 												<div className="textItem">
 													<TextField
@@ -525,7 +628,9 @@ class Data extends React.Component {
 														label="DevelopmentToolName"
 														id="DevelopmentToolName"
 														onChange={e => {
-															changeStudentDevelopmentToolName(e.target.value);
+															changeStudentDevelopmentToolName(
+																e.target.value
+															);
 														}}
 														value={
 															studentDevelopmentToolInputData.developmentToolName
@@ -564,12 +669,16 @@ class Data extends React.Component {
 												</div>
 												<div
 													className="textItem"
-													style={{ flexDirection: 'row' }}
+													style={{
+														flexDirection: 'row'
+													}}
 												>
 													<Button
 														color="primary"
 														onClick={() => {
-															submitSingleData(studentDevelopmentToolInputData);
+															submitSingleData(
+																studentDevelopmentToolInputData
+															);
 														}}
 													>
 														Submit
@@ -601,7 +710,7 @@ class Data extends React.Component {
 
 function mapStateToProps(state) {
 	return {
-		singledata: state.singleData,
+		data: state.data,
 
 		studentInfoInputData: state.studentInfoInputData,
 		studentFrontEndInputData: state.studentFrontEndInputData,
@@ -650,11 +759,13 @@ export default connect(mapStateToProps, {
 	resetStudentDevelopmentToolInput: actions.resetStudentDevelopmentToolInput,
 	// Education Actions
 	changeStudentEducationDegreeName: actions.changeStudentEducationDegreeName,
-	changeStudentEducationDegreeLevel: actions.changeStudentEducationDegreeLevel,
+	changeStudentEducationDegreeLevel:
+		actions.changeStudentEducationDegreeLevel,
 	changeStudentEducationInstituteName:
 		actions.changeStudentEducationInstituteName,
 	changeStudentEducationPlace: actions.changeStudentEducationPlace,
-	changeStudentEducationPassingYear: actions.changeStudentEducationPassingYear,
+	changeStudentEducationPassingYear:
+		actions.changeStudentEducationPassingYear,
 	changeStudentEducationMajorSubject:
 		actions.changeStudentEducationMajorSubject,
 	resetStudentEducationInput: actions.resetStudentEducationInput,
