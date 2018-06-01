@@ -1,44 +1,49 @@
 module.exports = app => {
 	// api routes
 	app.get(
-		"/studentData/:name",
+		'/studentData/:name',
 		// require("passport").authenticate("jwt", { session: false }),
-		require("../handlers/getDataHandler")
+		require('../handlers/getDataHandler')
 	);
 	app.get(
-		"/getDataByName/:name",
-		require("../handlers/getDataByNameHandler")
+		'/getDataByName/:name',
+		require('../handlers/getDataByNameHandler')
 	);
-	app.post("/loginStudent", require("../handlers/loginStudentHandler"));
-	app.post("/postStudent", require("../handlers/postStudentHandler"));
+	app.post('/loginStudent', require('../handlers/loginStudentHandler'));
+	app.post('/postStudent', require('../handlers/postStudentHandler'));
 	app.post(
-		"/postSingleStudent/:name",
-		require("../handlers/postSingleStudentHandler")
+		'/postSingleStudent/:name',
+		require('../handlers/postSingleStudentHandler')
+	);
+
+	app.post(
+		'/deleteSingleStudent/:name',
+		require('../handlers/deleteSingleStudentHandler')
 	);
 
 	// ##############______________________################
 
 	// fallback routes ==>> means that routing of the routes
 
-	app.get("/login", (req, res) => {
-		res.sendFile(require("path").join(__dirname, "../../dist/index.html"));
+	app.get('/login', (req, res) => {
+		res.sendFile(require('path').join(__dirname, '../../dist/index.html'));
 	});
-	app.get("/signIn", (req, res) => {
-		res.sendFile(require("path").join(__dirname, "../../dist/index.html"));
+	app.get('/signIn', (req, res) => {
+		res.sendFile(require('path').join(__dirname, '../../dist/index.html'));
 	});
-	app.get("/home", (req, res) => {
-		res.sendFile(require("path").join(__dirname, "../../dist/index.html"));
+	app.get('/home', (req, res) => {
+		res.sendFile(require('path').join(__dirname, '../../dist/index.html'));
 	});
-	app.get("/data", (req, res) => {
-		res.sendFile(require("path").join(__dirname, "../../dist/index.html"));
+	app.get('/data', (req, res) => {
+		res.sendFile(require('path').join(__dirname, '../../dist/index.html'));
 	});
-	app.get("/data/:name", (req, res) => {
-		res.sendFile(require("path").join(__dirname, "../../dist/index.html"));
+	app.get('/data/:name', (req, res) => {
+		res.sendFile(require('path').join(__dirname, '../../dist/index.html'));
 	});
-	app.get("/studentDataComponent", (req, res) => {
-		res.sendFile(require("path").join(__dirname, "../../dist/index.html"));
+	app.get('/studentDataComponent', (req, res) => {
+		res.sendFile(require('path').join(__dirname, '../../dist/index.html'));
 	});
-	app.get("/:name", (req, res) => {
-		res.sendFile(require("path").join(__dirname, "../../dist/index.html"));
+	app.get('/:name', (req, res) => {
+		res.sendFile(require('path').join(__dirname, '../../dist/index.html'));
 	});
 };

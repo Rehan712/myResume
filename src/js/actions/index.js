@@ -438,3 +438,31 @@ export function submitSingleDataFail(error) {
 }
 
 // ########____________############
+
+// Actions for delete Single data
+
+export function deleteSingleData(data) {
+	return {
+		type: types.DELETE_SINGLE_DATA,
+		payload: data
+	};
+}
+export function deleteSingleDataAttempt() {
+	return {
+		type: types.DELETE_SINGLE_DATA_ATTEMPT
+	};
+}
+export function deleteSingleDataSuccess(data) {
+	return {
+		type: types.DELETE_SINGLE_DATA_SUCCESS,
+		payload: data
+	};
+}
+export function deleteSingleDataFail(error) {
+	return {
+		type: types.DELETE_SINGLE_DATA_FAIL,
+		payload: error
+	};
+}
+
+// ##########_______________##########

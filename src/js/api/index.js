@@ -35,6 +35,20 @@ export async function submitSingleDataApi(data) {
 	return res.data;
 }
 
+export async function deleteSingleDataApi(data) {
+	const token = localStorage.getItem('token');
+	const res = await axios.post(
+		`/deleteSingleStudent/${localStorage.getItem('name')}`,
+		data,
+		{
+			headers: {
+				Authorization: `Bearer ${token}`
+			}
+		}
+	);
+	return res.data;
+}
+
 export async function loginDataApi(data) {
 	const res = await axios.post('/loginStudent', data);
 	console.log('this is from submitDataApi', res);

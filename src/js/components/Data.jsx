@@ -6,6 +6,9 @@ import Button from '@material-ui/core/Button';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+// import AddIcon from '@material-ui/icons/Add';
+import Icon from '@material-ui/core/Icon';
+// import DeleteIcon from '@material-ui/icons/Delete';
 
 class Data extends React.Component {
 	constructor() {
@@ -25,19 +28,314 @@ class Data extends React.Component {
 		getData(name);
 	}
 
+	// componentWillReceieveProps(nextProps) {
+	// 	const { getData } = this.props;
+	// 	if (this.props.data !== nextProps.data) {
+	// 		getData(localStorage.getItem('name'));
+	// 	}
+	// }
+
+	// shouldComponentUpdate(nextProps) {
+	// 	return this.props.data.data !== nextProps.data.data;
+	// }
+
+	componentWillReceieveProps() {
+		this.setState({ openWorkExperience: false });
+	}
+
+	// Render Work Experience
+
 	renderWorkExperience() {
+		const { data } = this.props.data;
+		return Object.keys(data).length
+			? data.studentDetails.workExperience.length &&
+					data.studentDetails.workExperience.map((item, index) => {
+						return (
+							<div className="renderWorkExperience">
+								<div className="item">
+									<div className="heading">Company Name:</div>
+									<div className="description">
+										{item.companyName}
+									</div>
+								</div>
+								<div className="item">
+									<div className="heading">
+										Company Place:
+									</div>
+									<div className="description">
+										{item.place}
+									</div>
+								</div>
+								<div className="item">
+									<div className="heading">
+										Job Description:
+									</div>
+									<div className="description">
+										{item.description}
+									</div>
+								</div>
+								<div
+									className="item"
+									style={{ marginTop: 50, marginBottom: 20 }}
+								>
+									<Button variant="raised" color="primary">
+										Edit
+									</Button>
+									<Button
+										onClick={() => {
+											this.props.deleteSingleData(item);
+										}}
+										variant="raised"
+										color="secondary"
+										style={{ marginLeft: 10 }}
+									>
+										Delete
+									</Button>
+								</div>
+							</div>
+						);
+					})
+			: '';
+	}
+
+	// Render Education
+
+	renderEducation() {
+		const { data } = this.props.data;
+		return Object.keys(data).length
+			? data.studentDetails.education.length &&
+					data.studentDetails.education.map((item, index) => {
+						return (
+							<div className="renderWorkExperience">
+								<div className="item">
+									<div className="heading">Degree Name:</div>
+									<div className="description">
+										{item.degreeName}
+									</div>
+								</div>
+								<div className="item">
+									<div className="heading">Degree Level:</div>
+									<div className="description">
+										{item.degreeLevel}
+									</div>
+								</div>
+								<div className="item">
+									<div className="heading">
+										Institute Name:
+									</div>
+									<div className="description">
+										{item.instituteName}
+									</div>
+								</div>
+								<div className="item">
+									<div className="heading">Place:</div>
+									<div className="description">
+										{item.place}
+									</div>
+								</div>
+								<div className="item">
+									<div className="heading">Passing Year:</div>
+									<div className="description">
+										{item.passingYear}
+									</div>
+								</div>
+								<div className="item">
+									<div className="heading">
+										Major Subject:
+									</div>
+									<div className="description">
+										{item.majorSubject}
+									</div>
+								</div>
+								<div
+									className="item"
+									style={{ marginTop: 50, marginBottom: 20 }}
+								>
+									<Button variant="raised" color="primary">
+										Edit
+									</Button>
+									<Button
+										variant="raised"
+										color="secondary"
+										style={{ marginLeft: 10 }}
+									>
+										Delete
+									</Button>
+								</div>
+							</div>
+						);
+					})
+			: '';
+	}
+
+	// Render Work Experience
+
+	renderFrontEnd() {
+		const { data } = this.props.data;
+		return Object.keys(data).length
+			? data.studentDetails.technicalExpertise.frontEnd.length &&
+					data.studentDetails.technicalExpertise.frontEnd.map(
+						(item, index) => {
+							return (
+								<div className="renderWorkExperience">
+									<div className="item">
+										<div className="heading"> Name:</div>
+										<div className="description">
+											{item.name}
+										</div>
+									</div>
+									<div className="item">
+										<div className="heading">
+											Description:
+										</div>
+										<div className="description">
+											{item.description}
+										</div>
+									</div>
+									<div className="item">
+										<div className="heading">Duration:</div>
+										<div className="description">
+											{item.duration}
+										</div>
+									</div>
+									<div
+										className="item"
+										style={{
+											marginTop: 50,
+											marginBottom: 20
+										}}
+									>
+										<Button
+											variant="raised"
+											color="primary"
+										>
+											Edit
+										</Button>
+										<Button
+											variant="raised"
+											color="secondary"
+											style={{ marginLeft: 10 }}
+										>
+											Delete
+										</Button>
+									</div>
+								</div>
+							);
+						}
+					)
+			: '';
+	}
+
+	renderBackEnd() {
+		const { data } = this.props.data;
+		return Object.keys(data).length
+			? data.studentDetails.technicalExpertise.backEnd.length &&
+					data.studentDetails.technicalExpertise.backEnd.map(
+						(item, index) => {
+							return (
+								<div className="renderWorkExperience">
+									<div className="item">
+										<div className="heading"> Name:</div>
+										<div className="description">
+											{item.name}
+										</div>
+									</div>
+									<div className="item">
+										<div className="heading">
+											Description:
+										</div>
+										<div className="description">
+											{item.description}
+										</div>
+									</div>
+									<div className="item">
+										<div className="heading">Duration:</div>
+										<div className="description">
+											{item.duration}
+										</div>
+									</div>
+									<div
+										className="item"
+										style={{
+											marginTop: 50,
+											marginBottom: 20
+										}}
+									>
+										<Button
+											variant="raised"
+											color="primary"
+										>
+											Edit
+										</Button>
+										<Button
+											variant="raised"
+											color="secondary"
+											style={{ marginLeft: 10 }}
+										>
+											Delete
+										</Button>
+									</div>
+								</div>
+							);
+						}
+					)
+			: '';
+	}
+
+	renderDevelopmentTool() {
 		const { data } = this.props.data;
 		console.log('this is data from renderWorkExperience', data);
 		return Object.keys(data).length
-			? data.studentDetails.workExperience.map((item, index) => {
-					return (
-						<div className="renderWorkExperience">
-							Company Name:<div>{item.companyName}</div>
-							Company Place:<div>{item.place}</div>
-							Job Description:<div>{item.description}</div>
-						</div>
-					);
-			  })
+			? data.studentDetails.technicalExpertise.developmentTools.length &&
+					data.studentDetails.technicalExpertise.developmentTools.map(
+						(item, index) => {
+							return (
+								<div className="renderWorkExperience">
+									<div className="item">
+										<div className="heading"> Name:</div>
+										<div className="description">
+											{item.name}
+										</div>
+									</div>
+									<div className="item">
+										<div className="heading">
+											Description:
+										</div>
+										<div className="description">
+											{item.description}
+										</div>
+									</div>
+									<div className="item">
+										<div className="heading">Duration:</div>
+										<div className="description">
+											{item.duration}
+										</div>
+									</div>
+									<div
+										className="item"
+										style={{
+											marginTop: 50,
+											marginBottom: 20
+										}}
+									>
+										<Button
+											variant="raised"
+											color="primary"
+										>
+											Edit
+										</Button>
+										<Button
+											variant="raised"
+											color="secondary"
+											style={{ marginLeft: 10 }}
+										>
+											Delete
+										</Button>
+									</div>
+								</div>
+							);
+						}
+					)
 			: '';
 	}
 
@@ -99,9 +397,15 @@ class Data extends React.Component {
 				<div className="data">
 					<h2>Work Experience</h2>
 					<ExpansionPanel expanded={this.state.openWorkExperience}>
-						<ExpansionPanelSummary>
-							<div className="detailSection">
+						<ExpansionPanelSummary
+							style={{ cursor: 'auto', flexDirection: 'row' }}
+						>
+							<div className="renderDetail">
+								<div className="detailSection">
+									{this.renderWorkExperience()}
+								</div>
 								<Button
+									className="btn"
 									variant="raised"
 									color="primary"
 									onClick={() => {
@@ -112,7 +416,6 @@ class Data extends React.Component {
 								>
 									Add Experience
 								</Button>
-								{this.renderWorkExperience()}
 							</div>
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
@@ -208,6 +511,17 @@ class Data extends React.Component {
 														submitSingleData(
 															studentWorkExperienceInputData
 														);
+														resetStudentWorkExperienceInput();
+														setTimeout(() => {
+															this.setState({
+																openWorkExperience: false
+															});
+															this.props.getData(
+																localStorage.getItem(
+																	'name'
+																)
+															);
+														}, 1000);
 													}}
 												>
 													Submit
@@ -232,9 +546,18 @@ class Data extends React.Component {
 					</ExpansionPanel>
 					<h2>Education</h2>
 					<ExpansionPanel expanded={this.state.openEducation}>
-						<ExpansionPanelSummary>
-							<div className="detailSection">
+						<ExpansionPanelSummary
+							style={{ cursor: 'auto', flexDirection: 'row' }}
+						>
+							<div className="renderDetail">
+								<div
+									className="detailSection"
+									style={{ justifyContent: 'space-around' }}
+								>
+									{this.renderEducation()}
+								</div>
 								<Button
+									className="btn"
 									variant="raised"
 									color="primary"
 									onClick={() => {
@@ -356,6 +679,17 @@ class Data extends React.Component {
 														submitSingleData(
 															studentEducationInputData
 														);
+														resetStudentEducationInput();
+														setTimeout(() => {
+															this.setState({
+																openEducation: false
+															});
+															this.props.getData(
+																localStorage.getItem(
+																	'name'
+																)
+															);
+														}, 1000);
 													}}
 												>
 													Submit
@@ -378,18 +712,19 @@ class Data extends React.Component {
 							</div>
 						</ExpansionPanelDetails>
 					</ExpansionPanel>
-					<div className="button">
-						<button onClick={signOutData}>Sign out</button>
-					</div>
 					<h2>Technical Expertise</h2>
 					<div className="technicalExpertise">
-						<ExpansionPanel
-							style={{ width: '70%' }}
-							expanded={this.state.openFrontEnd}
-						>
-							<ExpansionPanelSummary>
-								<div className="frontEnd">
+						<ExpansionPanel expanded={this.state.openFrontEnd}>
+							<ExpansionPanelSummary
+								style={{ cursor: 'auto', flexDirection: 'row' }}
+							>
+								<div className="renderDetail">
+									<h2>Front End Skills</h2>
+									<div className="detailSection">
+										{this.renderFrontEnd()}
+									</div>
 									<Button
+										className="btn"
 										variant="raised"
 										color="primary"
 										onClick={() => {
@@ -467,6 +802,17 @@ class Data extends React.Component {
 															submitSingleData(
 																studentFrontEndInputData
 															);
+															resetStudentFrontEndInput();
+															setTimeout(() => {
+																this.setState({
+																	openFrontEnd: false
+																});
+																this.props.getData(
+																	localStorage.getItem(
+																		'name'
+																	)
+																);
+															}, 1000);
 														}}
 													>
 														Submit
@@ -489,13 +835,17 @@ class Data extends React.Component {
 								</div>
 							</ExpansionPanelDetails>
 						</ExpansionPanel>
-						<ExpansionPanel
-							style={{ width: '70%' }}
-							expanded={this.state.openBackEnd}
-						>
-							<ExpansionPanelSummary>
-								<div className="backEnd">
+						<ExpansionPanel expanded={this.state.openBackEnd}>
+							<ExpansionPanelSummary
+								style={{ cursor: 'auto', flexDirection: 'row' }}
+							>
+								<div className="renderDetail">
+									<h2>Back End Skills</h2>
+									<div className="detailSection">
+										{this.renderBackEnd()}
+									</div>
 									<Button
+										className="btn"
 										variant="raised"
 										color="primary"
 										onClick={() => {
@@ -573,6 +923,17 @@ class Data extends React.Component {
 															submitSingleData(
 																studentBackEndInputData
 															);
+															resetStudentBackEndInput();
+															setTimeout(() => {
+																this.setState({
+																	openBackEnd: false
+																});
+																this.props.getData(
+																	localStorage.getItem(
+																		'name'
+																	)
+																);
+															}, 1000);
 														}}
 													>
 														Submit
@@ -597,11 +958,17 @@ class Data extends React.Component {
 						</ExpansionPanel>
 						<ExpansionPanel
 							expanded={this.state.openDevelopmentTool}
-							style={{ width: '70%' }}
 						>
-							<ExpansionPanelSummary>
-								<div className="developmentTool">
+							<ExpansionPanelSummary
+								style={{ cursor: 'auto', flexDirection: 'row' }}
+							>
+								<div className="renderDetail">
+									<h2>Development Tools</h2>
+									<div className="detailSection">
+										{this.renderDevelopmentTool()}
+									</div>
 									<Button
+										className="btn"
 										variant="raised"
 										color="primary"
 										onClick={() => {
@@ -679,6 +1046,17 @@ class Data extends React.Component {
 															submitSingleData(
 																studentDevelopmentToolInputData
 															);
+															resetStudentDevelopmentToolInput();
+															setTimeout(() => {
+																this.setState({
+																	openDevelopmentTool: false
+																});
+																this.props.getData(
+																	localStorage.getItem(
+																		'name'
+																	)
+																);
+															}, 1000);
 														}}
 													>
 														Submit
@@ -702,6 +1080,9 @@ class Data extends React.Component {
 							</ExpansionPanelDetails>
 						</ExpansionPanel>
 					</div>
+				</div>
+				<div className="button">
+					<button onClick={signOutData}>Sign out</button>
 				</div>
 			</div>
 		);
@@ -770,5 +1151,8 @@ export default connect(mapStateToProps, {
 		actions.changeStudentEducationMajorSubject,
 	resetStudentEducationInput: actions.resetStudentEducationInput,
 
-	submitSingleData: actions.submitSingleData
+	submitSingleData: actions.submitSingleData,
+	// Action for delete
+
+	deleteSingleData: actions.deleteSingleData
 })(Data);
