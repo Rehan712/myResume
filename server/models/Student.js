@@ -28,21 +28,21 @@ const StudentSchema = mongoose.Schema({
 		technicalExpertise: {
 			frontEnd: [
 				{
-					name: String,
+					frontEndName: String,
 					description: String,
 					duration: String
 				}
 			],
 			backEnd: [
 				{
-					name: String,
+					backEndName: String,
 					description: String,
 					duration: String
 				}
 			],
 			developmentTools: [
 				{
-					name: String,
+					developmentToolName: String,
 					description: String,
 					duration: String
 				}

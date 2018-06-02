@@ -1,13 +1,13 @@
-import React from "react";
-import { connect } from "react-redux";
-import * as actions from "../actions";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
+import React from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 // import AddIcon from '@material-ui/icons/Add';
-import Icon from "@material-ui/core/Icon";
+import Icon from '@material-ui/core/Icon';
 // import DeleteIcon from '@material-ui/icons/Delete';
 
 class Data extends React.Component {
@@ -23,7 +23,7 @@ class Data extends React.Component {
 	}
 	componentDidMount() {
 		const { getData } = this.props;
-		const name = localStorage.getItem("name");
+		const name = localStorage.getItem('name');
 		// console.log('this is id from data component', );
 		getData(name);
 	}
@@ -84,6 +84,11 @@ class Data extends React.Component {
 									<Button
 										onClick={() => {
 											this.props.deleteSingleData(item);
+											setTimeout(() => {
+												this.props.getData(
+													localStorage.getItem('name')
+												);
+											}, 1000);
 										}}
 										variant="raised"
 										color="secondary"
@@ -95,7 +100,7 @@ class Data extends React.Component {
 							</div>
 						);
 					})
-			: "";
+			: '';
 	}
 
 	// Render Education
@@ -157,6 +162,11 @@ class Data extends React.Component {
 									<Button
 										onClick={() => {
 											this.props.deleteSingleData(item);
+											setTimeout(() => {
+												this.props.getData(
+													localStorage.getItem('name')
+												);
+											}, 1000);
 										}}
 										variant="raised"
 										color="secondary"
@@ -168,7 +178,7 @@ class Data extends React.Component {
 							</div>
 						);
 					})
-			: "";
+			: '';
 	}
 
 	// Render Work Experience
@@ -184,7 +194,7 @@ class Data extends React.Component {
 									<div className="item">
 										<div className="heading"> Name:</div>
 										<div className="description">
-											{item.name}
+											{item.frontEndName}
 										</div>
 									</div>
 									<div className="item">
@@ -219,6 +229,13 @@ class Data extends React.Component {
 												this.props.deleteSingleData(
 													item
 												);
+												setTimeout(() => {
+													this.props.getData(
+														localStorage.getItem(
+															'name'
+														)
+													);
+												}, 1000);
 											}}
 											variant="raised"
 											color="secondary"
@@ -231,7 +248,7 @@ class Data extends React.Component {
 							);
 						}
 					)
-			: "";
+			: '';
 	}
 
 	renderBackEnd() {
@@ -245,7 +262,7 @@ class Data extends React.Component {
 									<div className="item">
 										<div className="heading"> Name:</div>
 										<div className="description">
-											{item.name}
+											{item.backEndName}
 										</div>
 									</div>
 									<div className="item">
@@ -280,6 +297,13 @@ class Data extends React.Component {
 												this.props.deleteSingleData(
 													item
 												);
+												setTimeout(() => {
+													this.props.getData(
+														localStorage.getItem(
+															'name'
+														)
+													);
+												}, 1000);
 											}}
 											variant="raised"
 											color="secondary"
@@ -292,12 +316,12 @@ class Data extends React.Component {
 							);
 						}
 					)
-			: "";
+			: '';
 	}
 
 	renderDevelopmentTool() {
 		const { data } = this.props.data;
-		console.log("this is data from renderWorkExperience", data);
+		console.log('this is data from renderWorkExperience', data);
 		return Object.keys(data).length
 			? data.studentDetails.technicalExpertise.developmentTools.length &&
 					data.studentDetails.technicalExpertise.developmentTools.map(
@@ -307,7 +331,7 @@ class Data extends React.Component {
 									<div className="item">
 										<div className="heading"> Name:</div>
 										<div className="description">
-											{item.name}
+											{item.developmentToolName}
 										</div>
 									</div>
 									<div className="item">
@@ -342,6 +366,13 @@ class Data extends React.Component {
 												this.props.deleteSingleData(
 													item
 												);
+												setTimeout(() => {
+													this.props.getData(
+														localStorage.getItem(
+															'name'
+														)
+													);
+												}, 1000);
 											}}
 											variant="raised"
 											color="secondary"
@@ -354,7 +385,7 @@ class Data extends React.Component {
 							);
 						}
 					)
-			: "";
+			: '';
 	}
 
 	render() {
@@ -409,14 +440,14 @@ class Data extends React.Component {
 			resetStudentEducationInput
 		} = this.props;
 
-		console.log("this is the data from data component", this.props);
+		console.log('this is the data from data component', this.props);
 		return (
 			<div>
 				<div className="data">
 					<h2>Work Experience</h2>
 					<ExpansionPanel expanded={this.state.openWorkExperience}>
 						<ExpansionPanelSummary
-							style={{ cursor: "auto", flexDirection: "row" }}
+							style={{ cursor: 'auto', flexDirection: 'row' }}
 						>
 							<div className="renderDetail">
 								<div className="detailSection">
@@ -521,7 +552,7 @@ class Data extends React.Component {
 											</div>
 											<div
 												className="textItem"
-												style={{ flexDirection: "row" }}
+												style={{ flexDirection: 'row' }}
 											>
 												<Button
 													color="primary"
@@ -536,7 +567,7 @@ class Data extends React.Component {
 															});
 															this.props.getData(
 																localStorage.getItem(
-																	"name"
+																	'name'
 																)
 															);
 														}, 1000);
@@ -565,12 +596,12 @@ class Data extends React.Component {
 					<h2>Education</h2>
 					<ExpansionPanel expanded={this.state.openEducation}>
 						<ExpansionPanelSummary
-							style={{ cursor: "auto", flexDirection: "row" }}
+							style={{ cursor: 'auto', flexDirection: 'row' }}
 						>
 							<div className="renderDetail">
 								<div
 									className="detailSection"
-									style={{ justifyContent: "space-around" }}
+									style={{ justifyContent: 'space-around' }}
 								>
 									{this.renderEducation()}
 								</div>
@@ -689,7 +720,7 @@ class Data extends React.Component {
 											<div className="textItem" />
 											<div
 												className="textItem"
-												style={{ flexDirection: "row" }}
+												style={{ flexDirection: 'row' }}
 											>
 												<Button
 													color="primary"
@@ -704,7 +735,7 @@ class Data extends React.Component {
 															});
 															this.props.getData(
 																localStorage.getItem(
-																	"name"
+																	'name'
 																)
 															);
 														}, 1000);
@@ -734,7 +765,7 @@ class Data extends React.Component {
 					<div className="technicalExpertise">
 						<ExpansionPanel expanded={this.state.openFrontEnd}>
 							<ExpansionPanelSummary
-								style={{ cursor: "auto", flexDirection: "row" }}
+								style={{ cursor: 'auto', flexDirection: 'row' }}
 							>
 								<div className="renderDetail">
 									<h2>Front End Skills</h2>
@@ -811,7 +842,7 @@ class Data extends React.Component {
 												<div
 													className="textItem"
 													style={{
-														flexDirection: "row"
+														flexDirection: 'row'
 													}}
 												>
 													<Button
@@ -827,7 +858,7 @@ class Data extends React.Component {
 																});
 																this.props.getData(
 																	localStorage.getItem(
-																		"name"
+																		'name'
 																	)
 																);
 															}, 1000);
@@ -855,7 +886,7 @@ class Data extends React.Component {
 						</ExpansionPanel>
 						<ExpansionPanel expanded={this.state.openBackEnd}>
 							<ExpansionPanelSummary
-								style={{ cursor: "auto", flexDirection: "row" }}
+								style={{ cursor: 'auto', flexDirection: 'row' }}
 							>
 								<div className="renderDetail">
 									<h2>Back End Skills</h2>
@@ -932,7 +963,7 @@ class Data extends React.Component {
 												<div
 													className="textItem"
 													style={{
-														flexDirection: "row"
+														flexDirection: 'row'
 													}}
 												>
 													<Button
@@ -948,7 +979,7 @@ class Data extends React.Component {
 																});
 																this.props.getData(
 																	localStorage.getItem(
-																		"name"
+																		'name'
 																	)
 																);
 															}, 1000);
@@ -978,7 +1009,7 @@ class Data extends React.Component {
 							expanded={this.state.openDevelopmentTool}
 						>
 							<ExpansionPanelSummary
-								style={{ cursor: "auto", flexDirection: "row" }}
+								style={{ cursor: 'auto', flexDirection: 'row' }}
 							>
 								<div className="renderDetail">
 									<h2>Development Tools</h2>
@@ -1055,7 +1086,7 @@ class Data extends React.Component {
 												<div
 													className="textItem"
 													style={{
-														flexDirection: "row"
+														flexDirection: 'row'
 													}}
 												>
 													<Button
@@ -1071,7 +1102,7 @@ class Data extends React.Component {
 																});
 																this.props.getData(
 																	localStorage.getItem(
-																		"name"
+																		'name'
 																	)
 																);
 															}, 1000);

@@ -33,8 +33,7 @@ module.exports = (req, res) => {
 						res.status(201).send(student);
 					}
 				});
-			}
-			if (Object.keys(req.body).includes('degreeName')) {
+			} else if (Object.keys(req.body).includes('degreeName')) {
 				dataArray = [...student.studentDetails.education];
 				var data = dataArray.filter(item => {
 					if (req.body['degreeName'] !== item['degreeName']) {
@@ -55,6 +54,75 @@ module.exports = (req, res) => {
 				});
 
 				// console.log("thsi is req.body in degreeName", req.body);
+			} else if (Object.keys(req.body).includes('frontEndName')) {
+				dataArray = [
+					...student.studentDetails.technicalExpertise.frontEnd
+				];
+				var data = dataArray.filter(item => {
+					if (req.body['frontEndName'] !== item['frontEndName']) {
+						return true;
+					} else {
+						return false;
+					}
+				});
+
+				student.studentDetails.technicalExpertise.frontEnd = [...data];
+
+				student.save((err, student) => {
+					if (err) {
+						res.sendStatus(401);
+					} else {
+						res.status(201).send(student);
+					}
+				});
+			} else if (Object.keys(req.body).includes('backEndName')) {
+				dataArray = [
+					...student.studentDetails.technicalExpertise.backEnd
+				];
+				var data = dataArray.filter(item => {
+					if (req.body['backEndName'] !== item['backEndName']) {
+						return true;
+					} else {
+						return false;
+					}
+				});
+
+				student.studentDetails.technicalExpertise.backEnd = [...data];
+
+				student.save((err, student) => {
+					if (err) {
+						res.sendStatus(401);
+					} else {
+						res.status(201).send(student);
+					}
+				});
+			} else if (Object.keys(req.body).includes('developmentToolName')) {
+				dataArray = [
+					...student.studentDetails.technicalExpertise
+						.developmentTools
+				];
+				var data = dataArray.filter(item => {
+					if (
+						req.body['developmentToolName'] !==
+						item['developmentToolName']
+					) {
+						return true;
+					} else {
+						return false;
+					}
+				});
+
+				student.studentDetails.technicalExpertise.developmentTools = [
+					...data
+				];
+
+				student.save((err, student) => {
+					if (err) {
+						res.sendStatus(401);
+					} else {
+						res.status(201).send(student);
+					}
+				});
 			} else {
 				student.save((err, student) => {
 					if (err) {

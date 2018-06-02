@@ -34,21 +34,21 @@ module.exports = (req, res) => {
 		console.log('this is the id', student);
 		if (frontEndName) {
 			student[0].studentDetails.technicalExpertise.frontEnd.push({
-				name: frontEndName,
+				frontEndName,
 				description: frontEndDescription,
 				duration: frontEndDuration
 			});
 		}
 		if (backEndName) {
 			student[0].studentDetails.technicalExpertise.backEnd.push({
-				name: backEndName,
+				backEndName,
 				description: backEndDescription,
 				duration: backEndDuration
 			});
 		}
 		if (developmentToolName) {
 			student[0].studentDetails.technicalExpertise.developmentTools.push({
-				name: developmentToolName,
+				developmentToolName,
 				description: developmentToolDescription,
 				duration: developmentToolDuration
 			});
