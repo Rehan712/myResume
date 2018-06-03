@@ -17,6 +17,14 @@ export default function studentDataBackEndTextFieldReducer(
 			return { ...state, backEndDescription: action.payload };
 		case types.CHANGE_STUDENT_BACK_END_DURATION:
 			return { ...state, backEndDuration: action.payload };
+		case types.EDIT_BACK_END:
+			const data = action.payload;
+			return {
+				...state,
+				backEndName: data.backEndName,
+				backEndDescription: data.description,
+				backEndDuration: data.duration
+			};
 		case types.RESET_STUDENT_BACK_END_INPUT:
 			return initial;
 		default:

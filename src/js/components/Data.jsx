@@ -9,6 +9,7 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 // import AddIcon from '@material-ui/icons/Add';
 import Icon from '@material-ui/core/Icon';
 // import DeleteIcon from '@material-ui/icons/Delete';
+import ReactScrollToComponent from 'react-scroll-to-component';
 
 class Data extends React.Component {
 	constructor() {
@@ -26,6 +27,11 @@ class Data extends React.Component {
 		const name = localStorage.getItem('name');
 		// console.log('this is id from data component', );
 		getData(name);
+		ReactScrollToComponent(this.workExperienceItem, {
+			offset: 0,
+			align: 'top',
+			duration: 1000
+		});
 	}
 
 	// componentWillReceieveProps(nextProps) {
@@ -51,7 +57,12 @@ class Data extends React.Component {
 			? data.studentDetails.workExperience.length &&
 					data.studentDetails.workExperience.map((item, index) => {
 						return (
-							<div className="renderWorkExperience">
+							<div
+								className="renderWorkExperience"
+								ref={section =>
+									(this.workExperienceItem = section)
+								}
+							>
 								<div className="item">
 									<div className="heading">Company Name:</div>
 									<div className="description">
@@ -74,16 +85,37 @@ class Data extends React.Component {
 										{item.description}
 									</div>
 								</div>
+								<div className="item">
+									<div className="heading">StartingDate:</div>
+									<div className="description">
+										{item.startingDate}
+									</div>
+								</div>
+								<div className="item">
+									<div className="heading">Ending Date</div>
+									<div className="description">
+										{item.endingDate}
+									</div>
+								</div>
 								<div
 									className="item"
 									style={{ marginTop: 50, marginBottom: 20 }}
 								>
-									<Button variant="raised" color="primary">
+									<Button
+										variant="raised"
+										color="primary"
+										onClick={() => {
+											this.props.editWorkExperience(item);
+										}}
+									>
 										Edit
 									</Button>
 									<Button
 										onClick={() => {
 											this.props.deleteSingleData(item);
+											this.setState({
+												openWorkExperience: true
+											});
 											setTimeout(() => {
 												this.props.getData(
 													localStorage.getItem('name')
@@ -111,7 +143,12 @@ class Data extends React.Component {
 			? data.studentDetails.education.length &&
 					data.studentDetails.education.map((item, index) => {
 						return (
-							<div className="renderWorkExperience">
+							<div
+								className="renderWorkExperience"
+								ref={section => {
+									this.educationItem = section;
+								}}
+							>
 								<div className="item">
 									<div className="heading">Degree Name:</div>
 									<div className="description">
@@ -156,7 +193,16 @@ class Data extends React.Component {
 									className="item"
 									style={{ marginTop: 50, marginBottom: 20 }}
 								>
-									<Button variant="raised" color="primary">
+									<Button
+										variant="raised"
+										color="primary"
+										onClick={() => {
+											this.props.editEducation(item);
+											this.setState({
+												openEducation: true
+											});
+										}}
+									>
 										Edit
 									</Button>
 									<Button
@@ -190,7 +236,12 @@ class Data extends React.Component {
 					data.studentDetails.technicalExpertise.frontEnd.map(
 						(item, index) => {
 							return (
-								<div className="renderWorkExperience">
+								<div
+									className="renderWorkExperience"
+									ref={section => {
+										this.frontEndItem = section;
+									}}
+								>
 									<div className="item">
 										<div className="heading"> Name:</div>
 										<div className="description">
@@ -221,6 +272,12 @@ class Data extends React.Component {
 										<Button
 											variant="raised"
 											color="primary"
+											onClick={() => {
+												this.props.editFrontEnd(item);
+												this.setState({
+													openFrontEnd: true
+												});
+											}}
 										>
 											Edit
 										</Button>
@@ -258,7 +315,12 @@ class Data extends React.Component {
 					data.studentDetails.technicalExpertise.backEnd.map(
 						(item, index) => {
 							return (
-								<div className="renderWorkExperience">
+								<div
+									className="renderWorkExperience"
+									ref={section => {
+										this.backEndItem = section;
+									}}
+								>
 									<div className="item">
 										<div className="heading"> Name:</div>
 										<div className="description">
@@ -289,6 +351,12 @@ class Data extends React.Component {
 										<Button
 											variant="raised"
 											color="primary"
+											onClick={() => {
+												this.props.editBackEnd(item);
+												this.setState({
+													openBackEnd: true
+												});
+											}}
 										>
 											Edit
 										</Button>
@@ -327,7 +395,12 @@ class Data extends React.Component {
 					data.studentDetails.technicalExpertise.developmentTools.map(
 						(item, index) => {
 							return (
-								<div className="renderWorkExperience">
+								<div
+									className="renderWorkExperience"
+									ref={section => {
+										this.developmentToolItem = section;
+									}}
+								>
 									<div className="item">
 										<div className="heading"> Name:</div>
 										<div className="description">
@@ -358,6 +431,14 @@ class Data extends React.Component {
 										<Button
 											variant="raised"
 											color="primary"
+											onClick={() => {
+												this.props.editDevelopmentTool(
+													item
+												);
+												this.setState({
+													openDevelopmentTool: true
+												});
+											}}
 										>
 											Edit
 										</Button>
@@ -461,6 +542,14 @@ class Data extends React.Component {
 										this.setState({
 											openWorkExperience: true
 										});
+										ReactScrollToComponent(
+											this.workExperienceForm,
+											{
+												offset: 0,
+												align: 'top',
+												duration: 1000
+											}
+										);
 									}}
 								>
 									Add Experience
@@ -468,7 +557,12 @@ class Data extends React.Component {
 							</div>
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
-							<div className="form">
+							<div
+								className="form"
+								ref={section => {
+									this.workExperienceForm = section;
+								}}
+							>
 								<div className="studentForm">
 									<div className="formItems">
 										<div className="formHeading">
@@ -571,6 +665,15 @@ class Data extends React.Component {
 																)
 															);
 														}, 1000);
+														ReactScrollToComponent(
+															this
+																.workExperienceItem,
+															{
+																offset: 0,
+																align: 'top',
+																duration: 1500
+															}
+														);
 													}}
 												>
 													Submit
@@ -579,6 +682,15 @@ class Data extends React.Component {
 													color="secondary"
 													onClick={() => {
 														resetStudentWorkExperienceInput();
+														ReactScrollToComponent(
+															this
+																.workExperienceItem,
+															{
+																offset: 0,
+																align: 'top',
+																duration: 1500
+															}
+														);
 														this.setState({
 															openWorkExperience: false
 														});
@@ -613,6 +725,14 @@ class Data extends React.Component {
 										this.setState({
 											openEducation: true
 										});
+										ReactScrollToComponent(
+											this.educationForm,
+											{
+												offset: 0,
+												align: 'top',
+												duration: 1000
+											}
+										);
 									}}
 								>
 									Add Education
@@ -620,7 +740,12 @@ class Data extends React.Component {
 							</div>
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
-							<div className="form">
+							<div
+								className="form"
+								ref={section => {
+									this.educationForm = section;
+								}}
+							>
 								<div className="studentForm">
 									<div className="formItems">
 										<div className="formHeading">
@@ -739,6 +864,14 @@ class Data extends React.Component {
 																)
 															);
 														}, 1000);
+														ReactScrollToComponent(
+															this.educationItem,
+															{
+																offset: 0,
+																align: 'top',
+																duration: 1500
+															}
+														);
 													}}
 												>
 													Submit
@@ -747,6 +880,14 @@ class Data extends React.Component {
 													color="secondary"
 													onClick={() => {
 														resetStudentEducationInput();
+														ReactScrollToComponent(
+															this.educationItem,
+															{
+																offset: 0,
+																align: 'top',
+																duration: 1500
+															}
+														);
 														this.setState({
 															openEducation: false
 														});
@@ -780,6 +921,14 @@ class Data extends React.Component {
 											this.setState({
 												openFrontEnd: true
 											});
+											ReactScrollToComponent(
+												this.frontEndForm,
+												{
+													offset: 0,
+													align: 'top',
+													duration: 1000
+												}
+											);
 										}}
 									>
 										Add Front End
@@ -787,7 +936,12 @@ class Data extends React.Component {
 								</div>
 							</ExpansionPanelSummary>
 							<ExpansionPanelDetails>
-								<div className="form">
+								<div
+									className="form"
+									ref={section => {
+										this.frontEndForm = section;
+									}}
+								>
 									<div className="studentForm">
 										<div className="formItems">
 											<div className="formHeading">
@@ -856,6 +1010,16 @@ class Data extends React.Component {
 																this.setState({
 																	openFrontEnd: false
 																});
+																ReactScrollToComponent(
+																	this
+																		.frontEndItem,
+																	{
+																		offset: 0,
+																		align:
+																			'top',
+																		duration: 1500
+																	}
+																);
 																this.props.getData(
 																	localStorage.getItem(
 																		'name'
@@ -870,6 +1034,16 @@ class Data extends React.Component {
 														color="secondary"
 														onClick={() => {
 															resetStudentFrontEndInput();
+															ReactScrollToComponent(
+																this
+																	.frontEndItem,
+																{
+																	offset: 0,
+																	align:
+																		'top',
+																	duration: 1500
+																}
+															);
 															this.setState({
 																openFrontEnd: false
 															});
@@ -901,6 +1075,14 @@ class Data extends React.Component {
 											this.setState({
 												openBackEnd: true
 											});
+											ReactScrollToComponent(
+												this.backEndForm,
+												{
+													offset: 0,
+													align: 'top',
+													duration: 1000
+												}
+											);
 										}}
 									>
 										Add Back End
@@ -908,7 +1090,12 @@ class Data extends React.Component {
 								</div>
 							</ExpansionPanelSummary>
 							<ExpansionPanelDetails>
-								<div className="form">
+								<div
+									className="form"
+									ref={section => {
+										this.backEndForm = section;
+									}}
+								>
 									<div className="studentForm">
 										<div className="formItems">
 											<div className="formHeading">
@@ -977,6 +1164,16 @@ class Data extends React.Component {
 																this.setState({
 																	openBackEnd: false
 																});
+																ReactScrollToComponent(
+																	this
+																		.backEndItem,
+																	{
+																		offset: 0,
+																		align:
+																			'top',
+																		duration: 1500
+																	}
+																);
 																this.props.getData(
 																	localStorage.getItem(
 																		'name'
@@ -991,6 +1188,16 @@ class Data extends React.Component {
 														color="secondary"
 														onClick={() => {
 															resetStudentBackEndInput();
+															ReactScrollToComponent(
+																this
+																	.backEndItem,
+																{
+																	offset: 0,
+																	align:
+																		'top',
+																	duration: 1500
+																}
+															);
 															this.setState({
 																openBackEnd: false
 															});
@@ -1024,6 +1231,14 @@ class Data extends React.Component {
 											this.setState({
 												openDevelopmentTool: true
 											});
+											ReactScrollToComponent(
+												this.developmentToolForm,
+												{
+													offset: 0,
+													align: 'top',
+													duration: 1000
+												}
+											);
 										}}
 									>
 										Add Development Tool
@@ -1031,7 +1246,12 @@ class Data extends React.Component {
 								</div>
 							</ExpansionPanelSummary>
 							<ExpansionPanelDetails>
-								<div className="form">
+								<div
+									className="form"
+									ref={section => {
+										this.developmentToolForm = section;
+									}}
+								>
 									<div className="studentForm">
 										<div className="formItems">
 											<div className="formHeading">
@@ -1100,6 +1320,16 @@ class Data extends React.Component {
 																this.setState({
 																	openDevelopmentTool: false
 																});
+																ReactScrollToComponent(
+																	this
+																		.developmentToolItem,
+																	{
+																		offset: 0,
+																		align:
+																			'top',
+																		duration: 1500
+																	}
+																);
 																this.props.getData(
 																	localStorage.getItem(
 																		'name'
@@ -1114,6 +1344,16 @@ class Data extends React.Component {
 														color="secondary"
 														onClick={() => {
 															resetStudentDevelopmentToolInput();
+															ReactScrollToComponent(
+																this
+																	.developmentToolItem,
+																{
+																	offset: 0,
+																	align:
+																		'top',
+																	duration: 1500
+																}
+															);
 															this.setState({
 																openDevelopmentTool: false
 															});
@@ -1203,5 +1443,13 @@ export default connect(mapStateToProps, {
 	submitSingleData: actions.submitSingleData,
 	// Action for delete
 
-	deleteSingleData: actions.deleteSingleData
+	deleteSingleData: actions.deleteSingleData,
+
+	// Actions for Edit
+
+	editWorkExperience: actions.editWorkExperience,
+	editEducation: actions.editEducation,
+	editFrontEnd: actions.editFrontEnd,
+	editBackEnd: actions.editBackEnd,
+	editDevelopmentTool: actions.editDevelopmentTool
 })(Data);

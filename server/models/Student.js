@@ -17,8 +17,8 @@ const StudentSchema = mongoose.Schema({
 		workExperience: [
 			{
 				companyName: String,
-				startingDate: { Date },
-				EndingDate: { Date },
+				startingDate: String,
+				endingDate: String,
 				isTillNow: { Boolean },
 				place: String,
 				description: String

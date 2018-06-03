@@ -26,6 +26,17 @@ export default function studentDataEducationTextFieldReducer(
 			return { ...state, educationPlace: action.payload };
 		case types.CHANGE_STUDENT_PASSING_YEAR:
 			return { ...state, passingYear: action.payload };
+		case types.EDIT_EDUCATION:
+			const data = action.payload;
+			return {
+				...state,
+				degreeName: data.degreeName,
+				degreeLevel: data.degreeLevel,
+				instituteName: data.instituteName,
+				majorSubject: data.majorSubject,
+				educationPlace: data.place,
+				passingYear: data.passingYear
+			};
 		case types.RESET_STUDENT_EDUCATION_INPUT:
 			return initial;
 		default:

@@ -466,3 +466,40 @@ export function deleteSingleDataFail(error) {
 }
 
 // ##########_______________##########
+
+// Actions for Edit Data
+
+export function editWorkExperience(data) {
+	return {
+		type: types.EDIT_WORK_EXPERIENCE,
+		payload: data
+	};
+}
+
+export function editEducation(data) {
+	return {
+		type: types.EDIT_EDUCATION,
+		payload: data
+	};
+}
+
+export function editFrontEnd(data) {
+	return {
+		type: types.EDIT_FRONT_END,
+		payload: data
+	};
+}
+
+export function editBackEnd(data) {
+	return {
+		type: types.EDIT_BACK_END,
+		payload: data
+	};
+}
+
+export function editDevelopmentTool(data) {
+	return {
+		type: types.EDIT_DEVELOPMENT_TOOL,
+		payload: data
+	};
+}

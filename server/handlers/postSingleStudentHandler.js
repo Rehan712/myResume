@@ -57,7 +57,7 @@ module.exports = (req, res) => {
 			student[0].studentDetails.workExperience.push({
 				companyName: companyName,
 				startingDate,
-				EndingDate: endingDate,
+				endingDate,
 				place: workExperiencePlace,
 				description: workExperienceDescription
 			});

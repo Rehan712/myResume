@@ -141,3 +141,13 @@ export const DELETE_SINGLE_DATA = 'DELETE_SINGLE_DATA';
 export const DELETE_SINGLE_DATA_ATTEMPT = 'DELETE_SINGLE_DATA_ATTEMPT';
 export const DELETE_SINGLE_DATA_FAIL = 'DELETE_SINGLE_DATA_FAIL';
 export const DELETE_SINGLE_DATA_SUCCESS = 'DELETE_SINGLE_DATA_SUCCESS';
+
+// ###############_________________##############
+
+// Types for Edit the items
+
+export const EDIT_WORK_EXPERIENCE = 'EDIT_WORK_EXPERIENCE';
+export const EDIT_EDUCATION = 'EDIT_EDUCATION';
+export const EDIT_FRONT_END = 'EDIT_FRONT_END';
+export const EDIT_BACK_END = 'EDIT_BACK_END';
+export const EDIT_DEVELOPMENT_TOOL = 'EDIT_DEVELOPMENT_TOOL';

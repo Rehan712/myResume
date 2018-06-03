@@ -23,6 +23,16 @@ export default function studentDataWorkExperienceTextFieldReducer(
 			return { ...state, workExperiencePlace: action.payload };
 		case types.CHANGE_STUDENT_DESCRIPTION:
 			return { ...state, workExperienceDescription: action.payload };
+		case types.EDIT_WORK_EXPERIENCE:
+			const data = action.payload;
+			return {
+				...state,
+				companyName: data.companyName,
+				startingDate: data.startingDate,
+				endingDate: data.endingDate,
+				workExperiencePlace: data.place,
+				workExperienceDescription: data.description
+			};
 		case types.RESET_STUDENT_WORK_EXPERIENCE_INPUT:
 			return initial;
 		default:

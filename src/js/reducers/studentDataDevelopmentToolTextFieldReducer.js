@@ -17,6 +17,14 @@ export default function studentDataDevelopmentToolTextFieldReducer(
 			return { ...state, developmentToolDescription: action.payload };
 		case types.CHANGE_STUDENT_DEVELOPMENT_TOOL_DURATION:
 			return { ...state, developmentToolDuration: action.payload };
+		case types.EDIT_DEVELOPMENT_TOOL:
+			const data = action.payload;
+			return {
+				...state,
+				developmentToolName: data.developmentToolName,
+				developmentToolDescription: data.description,
+				developmentToolDuration: data.duration
+			};
 		case types.RESET_STUDENT_DEVELOPMENT_TOOL_INPUT:
 			return initial;
 		default:
